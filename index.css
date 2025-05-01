@@ -96,7 +96,7 @@ body {
   border-radius: 8px;
 }
 .main-nav-link.main-lnk:hover,
-.main-nav-link.main-lnk:visited {
+.main-nav-link.main-lnk:active {
   background-color: #0f011a;
 }
 /* //////////////////////////////////////////////
