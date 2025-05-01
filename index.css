@@ -17,7 +17,7 @@ body {
 
 /*reUsable css */
 .container {
-  max-width: 120rem;
+  max-width: 130rem;
   margin: 0 auto;
   padding: 0 3.2rem;
 }
@@ -98,4 +98,46 @@ body {
 .main-nav-link.main-lnk:hover,
 .main-nav-link.main-lnk:visited {
   background-color: #0f011a;
+}
+/* //////////////////////////////////////////////
+/////////////////////////////////////////// */
+.separatebackground {
+  margin: 9.6rem 0;
+}
+.photoes {
+  display: flex;
+  justify-content: space-around;
+}
+.image {
+  width: 20rem;
+  height: 20rem;
+}
+.image img {
+  width: 100%;
+}
+.categorie {
+  width: 25rem;
+  height: 25rem;
+  text-align: center;
+  transition: all 1.5ms ease;
+}
+.categorie img {
+  width: 100%;
+}
+.categorie:hover {
+  transform: scale(1.1);
+}
+.categorie .categorieName {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6776c2;
+  margin: 1.5rem 0;
+}
+.heading-section {
+  margin: 4rem 0;
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #6776c2;
 }
