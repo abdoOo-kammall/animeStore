@@ -49,7 +49,7 @@ window.addEventListener('load',function(){
         loginPasswordInput.value.trim() === storedUser.password
         ) {
         alert(`Welcome back, ${storedUser.username}!`);
-        // window.location.href = ' ';
+        window.location.href = 'index.html';
         
         } else {
         alert('Incorrect email or password.');
