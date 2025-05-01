@@ -32,6 +32,16 @@
           <input type="password" id="confirmPassword" required />
           <span class="error" id="confirmError"></span>
         </div>
+
+        <div class="input-group">
+          <label for="userType">Register as</label>
+          <select id="userType" required>
+            <option value="">-- Select --</option>
+            <option value="customer">Customer</option>
+            <option value="seller">Seller</option>
+          </select>
+          <span class="error" id="userTypeError"></span>
+        </div>
         <button type="submit">Sign Up</button>
         <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
       </form>
