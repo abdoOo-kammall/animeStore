@@ -1,0 +1,457 @@
+{
+  "products": [
+    {
+      "category": "Hoodies",
+      "product_name": "Jujutsu Kaisen Hoodie ",
+      "price": "700 EGP",
+      "description": "Stylish hoodie featuring Gojo Satoru from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "https://oneforall-anime.com/cdn/shop/files/GOJO.jpg?v=1729554745&width=360",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.8
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Jujutsu Kaisen Hoodie ",
+      "price": "850 EGP",
+      "description": "Stylish hoodie featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/hoodies.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.7
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Jujutsu Kaisen Hoodie ",
+      "price": "800 EGP",
+      "description": "Stylish hoodie featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/hoodies2.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.9
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Jujutsu Kaisen Hoodie ",
+      "price": "700 EGP",
+      "description": "Stylish hoodie featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/hoodies3.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.6
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Jujutsu Kaisen Hoodie ",
+      "price": "850 EGP",
+      "description": "Stylish hoodie featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/hoodies4.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.5
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Jujutsu Kaisen Hoodie ",
+      "price": "850 EGP",
+      "description": "Stylish hoodie featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/hoodies5.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.9
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Jujutsu Kaisen T-shirt ",
+      "price": "400 EGP",
+      "description": "Stylish T-shirt featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/t-shirt.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.3
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Jujutsu Kaisen T-shirt ",
+      "price": "350 EGP",
+      "description": "Stylish T-shirt featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/t-shirt2.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.5
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Jujutsu Kaisen T-shirt ",
+      "price": "250 EGP",
+      "description": "Stylish T-shirt featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/t-shirt3.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.6
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Jujutsu Kaisen T-shirt ",
+      "price": "300 EGP",
+      "description": "Stylish T-shirt featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/t-shirt4.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.7
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Jujutsu Kaisen T-shirt ",
+      "price": "400 EGP",
+      "description": "Stylish T-shirt featuring from Jujutsu Kaisen with high-quality print on front and back.",
+      "image_url": "Animes/jujutsu-kaisen/t-shirt5.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.8
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Jujutsu Kaisen Accessorie ",
+      "price": "800 EGP",
+      "description": "Stylish Accessories featuring from Jujutsu Kaisen with high-quality.",
+      "image_url": "Animes/jujutsu-kaisen/accessories.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.9
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Jujutsu Kaisen Accessorie ",
+      "price": "850 EGP",
+      "description": "Stylish Accessories featuring from Jujutsu Kaisen with high-quality.",
+      "image_url": "Animes/jujutsu-kaisen/accessories2.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.3
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Jujutsu Kaisen Accessorie ",
+      "price": "750 EGP",
+      "description": "Stylish Accessories featuring from Jujutsu Kaisen with high-quality.",
+      "image_url": "Animes/jujutsu-kaisen/accessories3.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.7
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Jujutsu Kaisen Accessorie ",
+      "price": "900 EGP",
+      "description": "Stylish Accessories featuring from Jujutsu Kaisen with high-quality.",
+      "image_url": "Animes/jujutsu-kaisen/accessories4.webp",
+      "anime": "Jujutsu Kaisen",
+      "rating": 4.9
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Gotenks Vintage Tee ",
+      "price": "400 EGP",
+      "description": "Vintage-style t-shirt featuring Gotenks in a bold anime design from Dragon Ball Z.",
+      "image_url": "https://cdn.animebape.com/wp-content/uploads/2024/11/gotenks-shirt-dragon-ball-z-shirt-dbz-shirt-anime-shirt-vintage-tee-lfzpv.jpg",
+      "anime": "Dragon Ball Z",
+      "rating": 4.8
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Goku Power Blast FX Set ",
+      "price": "550 EGP",
+      "description": "Effect parts set for Son Goku featuring energy blasts, perfect for collectors and display.",
+      "image_url": "https://animestore.cz/447328-large_default/dragon-ball-z-sh-figuarts-accessories-son-goku-s-effect-parts-set.jpg",
+      "anime": "Dragon Ball Z",
+      "rating": 4.2
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Goku Power Blast FX Set ",
+      "price": "600 EGP",
+      "description": "Effect parts set for Son Goku featuring energy blasts, perfect for collectors and display.",
+      "image_url": "Animes/dragon ball/accessories.webp",
+      "anime": "Dragon Ball Z",
+      "rating": 4.1
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Goku Power Blast FX Set ",
+      "price": "850 EGP",
+      "description": "Effect parts set for Son Goku featuring energy blasts, perfect for collectors and display.",
+      "image_url": "Animes/dragon ball/accessories2.webp",
+      "anime": "Dragon Ball Z",
+      "rating": 4.4
+    },
+
+    {
+      "category": "Hoodies",
+      "product_name": "HxH Hoodie",
+      "price": "450 EGP",
+      "description": " hoodie inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/hoddies3.jpg",
+      "anime": "Hunter X Hunter",
+      "rating": 4.4
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "HxH Hoodie",
+      "price": "650 EGP",
+      "description": " hoodie inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/hoddies4.jpg",
+      "anime": "Hunter X Hunter",
+      "rating": 4.8
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "HxH Hoodie",
+      "price": "500 EGP",
+      "description": " hoodie inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/hoodies.webp",
+      "anime": "Hunter X Hunter",
+      "rating": 4.9
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "HxH Hoodie",
+      "price": "600 EGP",
+      "description": " hoodie inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/hoodies2.webp",
+      "anime": "Hunter X Hunter",
+      "rating": 4.7
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "HxH T-Shirt",
+      "price": "300 EGP",
+      "description": " T-Shirt inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/t-shirt1.jpg",
+      "anime": "Hunter X Hunter",
+      "rating": 4.6
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "HxH T-Shirt",
+      "price": "250 EGP",
+      "description": " T-Shirt inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/t-shirt2.jpg",
+      "anime": "Hunter X Hunter",
+      "rating": 4.7
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "HxH T-Shirt",
+      "price": "350 EGP",
+      "description": " T-Shirt inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/t-shirt3.webp",
+      "anime": "Hunter X Hunter",
+      "rating": 4.3
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "HxH T-Shirt",
+      "price": "350 EGP",
+      "description": " T-Shirt inspired by HXH anime, perfect for fans.",
+      "image_url": "Animes/xhx/t-shirt4.jpg",
+      "anime": "Hunter X Hunter",
+      "rating": 4.6
+    },
+
+    {
+      "category": "Hoodies",
+      "product_name": "Berserk Hoodie",
+      "price": "700 EGP",
+      "description": "Comfortable and high-quality hoodie inspired by Berserk anime.",
+      "image_url": "Animes/bersek/hoodies.webp",
+      "anime": "Berserk",
+      "rating": 4.9
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Berserk Hoodie",
+      "price": "650 EGP",
+      "description": "Comfortable and high-quality hoodie inspired by Berserk anime.",
+      "image_url": "Animes/bersek/hoodies2.webp",
+      "anime": "Berserk",
+      "rating": 4.4
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Berserk Accessorie",
+      "price": "800 EGP",
+      "description": "High-quality Accessorie inspired by Berserk anime.",
+      "image_url": "Animes/bersek/access.webp",
+      "anime": "Berserk",
+      "rating": 4.5
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "One Piece Hoodie",
+      "price": "550 EGP",
+      "description": "Comfortable and high-quality hoodie inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/hoodies.webp",
+      "anime": "One Piece",
+      "rating": 4.9
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "One Piece Hoodie",
+      "price": "650 EGP",
+      "description": "Comfortable and high-quality hoodie inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/hoodies2.webp",
+      "anime": "One Piece",
+      "rating": 4.8
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "One Piece T-shirt",
+      "price": "450 EGP",
+      "description": "Comfortable and high-quality T-shirt inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/t-shirt.webp",
+      "anime": "One Piece",
+      "rating": 4.6
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "One Piece T-shirt",
+      "price": "400 EGP",
+      "description": "Comfortable and high-quality T-shirt inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/t-shirt2.webp",
+      "anime": "One Piece",
+      "rating": 4.4
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "One Piece T-shirt",
+      "price": "350 EGP",
+      "description": "Comfortable and high-quality T-shirt inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/t-shirt3.webp",
+      "anime": "One Piece",
+      "rating": 4.6
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "One Piece T-shirt",
+      "price": "300 EGP",
+      "description": "Comfortable and high-quality T-shirt inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/t-shirt4.webp",
+      "anime": "One Piece",
+      "rating": 4.8
+    },
+    {
+      "category": "Accessories",
+      "product_name": "One Piece Accessorie",
+      "price": "700 EGP",
+      "description": " High-quality Accessorie inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/access.webp",
+      "anime": "One Piece",
+      "rating": 4.9
+    },
+    {
+      "category": "Accessories",
+      "product_name": "One Piece Accessorie",
+      "price": "750 EGP",
+      "description": " High-quality Accessorie inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/access2.webp",
+      "anime": "One Piece",
+      "rating": 4.8
+    },
+    {
+      "category": "Accessories",
+      "product_name": "One Piece Accessorie",
+      "price": "900 EGP",
+      "description": " High-quality Accessorie inspired by One Piece anime.",
+      "image_url": "Animes/one-piece/access3.webp",
+      "anime": "One Piece",
+      "rating": 4.6
+    },
+
+    {
+      "category": "T-Shirts",
+      "product_name": " Attack on Titan T-Shirt",
+      "price": "300 EGP",
+      "description": "Comfortable and High-quality T-Shirt inspired by Attack on Titan anime.",
+      "image_url": "Animes/aot/t-shirt.webp",
+      "anime": "Attack on Titan",
+      "rating": 4.8
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": " Attack on Titan T-Shirt",
+      "price": "350 EGP",
+      "description": "Comfortable and High-quality T-Shirt inspired by Attack on Titan anime.",
+      "image_url": "Animes/aot/t-shirts.webp",
+      "anime": "Attack on Titan",
+      "rating": 4.9
+    },
+    {
+      "category": "Hoodies",
+      "product_name": " Attack on Titan Hoodie",
+      "price": "650 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Attack on Titan anime.",
+      "image_url": "Animes/aot/hoodies.webp",
+      "anime": "Attack on Titan",
+      "rating": 4.2
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Bleach Hoodie",
+      "price": "600 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Bleach anime.",
+      "image_url": "Animes/bleach/hoodeies2.webp",
+      "anime": "Bleach",
+      "rating": 4.3
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Bleach Hoodie",
+      "price": "550 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Bleach anime.",
+      "image_url": "Animes/bleach/hoodies.webp",
+      "anime": "Bleach",
+      "rating": 4.7
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Bleach Hoodie",
+      "price": "450 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Bleach anime.",
+      "image_url": "Animes/bleach/hoodies3.webp",
+      "anime": "Bleach",
+      "rating": 4.6
+    },
+    {
+      "category": "T-Shirts",
+      "product_name": "Bleach T-shirt",
+      "price": "300 EGP",
+      "description": "Comfortable and High-quality T-shirt inspired by Bleach anime.",
+      "image_url": "Animes/bleach/t-shirt.webp",
+      "anime": "Bleach",
+      "rating": 4.2
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Solo Leveling Hoodie",
+      "price": "550 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Solo Leveling anime.",
+      "image_url": "Animes/solo-leveling/hoodies.webp",
+      "anime": "Solo Leveling",
+      "rating": 4.3
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Solo Leveling Hoodie",
+      "price": "450 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Solo Leveling anime.",
+      "image_url": "Animes/solo-leveling/hoodies2.webp",
+      "anime": "Solo Leveling",
+      "rating": 4.8
+    },
+    {
+      "category": "Hoodies",
+      "product_name": "Solo Leveling Hoodie",
+      "price": "500 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Solo Leveling anime.",
+      "image_url": "Animes/solo-leveling/hoodies3.webp",
+      "anime": "Solo Leveling",
+      "rating": 4.9
+    },
+    {
+      "category": "Accessories",
+      "product_name": "Solo Leveling Accessorie",
+      "price": "550 EGP",
+      "description": "High-quality Accessorie inspired by Solo Leveling anime.",
+      "image_url": "Animes/solo-leveling/access.webp",
+      "anime": "Solo Leveling",
+      "rating": 4.2
+    }
+  ]
+}

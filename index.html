@@ -16,22 +16,23 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/index.css" />
+     <script src="js/product.js"></script>
 
-    <title>OmniFood</title>
+    <title>Anime Store</title>
+   
   </head>
   <body>
     <header class="header">
       <img class="logo" src="IMAGES/image.png" alt="ONE_PIECE-logo" />
       <nav class="main-nav">
         <ul class="main-nav-list">
-          <li><a class="main-nav-link" href="#">Home</a></li>
-          <li><a class="main-nav-link" href="#">Categories</a></li>
-          <li><a class="main-nav-link" href="#">Anime</a></li>
-          <li><a class="main-nav-link" href="#">Contact Us</a></li>
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+          <li><a class="main-nav-link" href="#categories">Categories</a></li>
+          <li><a class="main-nav-link" href="#Animes">Anime</a></li>
+          <li><a class="main-nav-link" href="contactUs.html">Contact Us</a></li>
           <li><a class="main-nav-link main-lnk" href="login.html">Log In</a></li>
           <li><a class="main-nav-link" href="signup.html">Sign Up</a></li>
-
         </ul>
       </nav>
     </header>
@@ -57,7 +58,7 @@
 
 
 
-      <section class="Categories container">
+      <section class="Categories container"  id="categories">
         <h3 class="heading-section">Categories</h3>
         <div class="fullCategories grid grid--4-col ">
           <div class="categorie">
@@ -80,7 +81,142 @@
 
       </section>
 
-    <section class="anime"></section>
+    <section class="animes-section container" id="Animes">
+      <h3 class="heading-section">Choose By Anime </h3>
+      <div class="animes grid grid--5-col" >
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/attack-on-titan.jpg" alt="">
+          </div>
+          <div class="animetitle">
+            <a href="#">attck on titan</a>
+           
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/bersek.jpg" alt="">
+          </div>
+          <div class="animetitle">
+            <a href="#">bersek</a>
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/one-piece.jpg" alt="">
+          </div>
+          <div class="animetitle">
+           <a href="#">one piece </a> 
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/jujutsuekaisen.jpg" alt="">
+          </div>
+          <div class="animetitle">
+          
+            <a href="#">jujutsue kaisen</a>
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/bleach.jpg" alt="">
+          </div>
+          <div class="animetitle">
+            <a href="#">bleach</a>
+          
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/arcane.jpg" alt="">
+          </div>
+          <div class="animetitle">
+            <a href="#">arcane</a>
+        
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/hxh.jpg" alt="">
+          </div>
+          <div class="animetitle">
+            <a href="#">hunter x hunter</a>
+          </div>
+        </div>
+        <div class="anime">
+          <div class="image-anime">
+            <img src="./IMAGES/dragonball.jpg" alt="">
+          </div>
+          <div class="animetitle">
+            <a href="#">dragon ball </a>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="featured-products container">
+      <h3 class="heading-section">Featured Products</h3>
+      <div id="product-grid" class="grid grid--4-col"></div>
+    </section>
+    <section class="featured-products container">
+      <h3 class="heading-section">Featured Accessories</h3>
+      <div id="access-grid" class="grid grid--4-col"></div>
+    </section>
     </main>
+
+    
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img
+              class="logo"
+              alt="anime store logo"
+              src="IMAGES/image.png"
+            />
+          </a>
+
+          <div class="social-media">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+
+          <p class="copyright">
+            Copyright &copy; 2025 by Anime Store. All rights reserved.
+          </p>
+        </div>
+        
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="signup.html">Create account</a></li>
+            <li><a class="footer-link" href="login.html">Sign in</a></li>
+            <li><a class="footer-link" href="#">iOS app</a></li>
+            <li><a class="footer-link" href="#">Android app</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">About Anime </a></li>
+            <li><a class="footer-link" href="#">For Business</a></li>
+            <li><a class="footer-link" href="#">Manga partners</a></li>
+            <li><a class="footer-link" href="#">Careers</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Help center</a></li>
+            <li><a class="footer-link" href="#">Privacy & terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
