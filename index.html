@@ -10,6 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
 
     <link
       rel="stylesheet"
@@ -17,7 +22,7 @@
     />
 
     <link rel="stylesheet" href="css/index.css" />
-     <script src="js/product.js"></script>
+   
 
     <title>Anime Store</title>
    
@@ -63,19 +68,19 @@
         <div class="fullCategories grid grid--4-col ">
           <div class="categorie">
             <img src="https://oneforall-anime.com/cdn/shop/collections/hoodie.png?v=1736680032&width=1000" alt="">
-            <a href="#" class="categorieName">Hoodies</a>         
+            <a href="shop.html" class="categorieName">Hoodies</a>         
           </div>
           <div class="categorie">
             <img src="https://oneforall-anime.com/cdn/shop/collections/flat_icon_447785ce-ee4c-4d18-8405-16bf4c9a6957.png?v=1736680097&width=1000" alt="">
-            <a href="#" class="categorieName">T-shirts</a>   
+            <a href="shop.html" class="categorieName">T-shirts</a>   
           </div>
           <div class="categorie">
             <img src="https://oneforall-anime.com/cdn/shop/collections/beach-accessories.png?v=1736680119&width=1000" alt="">
-            <a href="#" class="categorieName">Accessories</a>   
+            <a href="shop.html" class="categorieName">Accessories</a>   
           </div>
           <div class="categorie">
             <img src="https://oneforall-anime.com/cdn/shop/collections/975B3FD8-1113-4AEE-ADD4-66DECAC381CC.jpg?v=1736680139&width=1000" alt="">
-            <a href="#" class="categorieName">Gaming Hoodies</a>   
+            <a href="shop.html" class="categorieName">Gaming Hoodies</a>   
           </div>
         </div>
 
@@ -89,7 +94,7 @@
             <img src="./IMAGES/attack-on-titan.jpg" alt="">
           </div>
           <div class="animetitle">
-            <a href="#">attck on titan</a>
+            <a class="anime" href="shop.html?Anime=attack-on-titan">attck on titan</a>
            
           </div>
         </div>
@@ -98,7 +103,7 @@
             <img src="./IMAGES/bersek.jpg" alt="">
           </div>
           <div class="animetitle">
-            <a href="#">bersek</a>
+            <a href="shop.html?Anime=berserk">Berserk</a>
           </div>
         </div>
         <div class="anime">
@@ -106,7 +111,7 @@
             <img src="./IMAGES/one-piece.jpg" alt="">
           </div>
           <div class="animetitle">
-           <a href="#">one piece </a> 
+           <a href="shop.html?Anime=one-piece">one piece </a> 
           </div>
         </div>
         <div class="anime">
@@ -115,7 +120,7 @@
           </div>
           <div class="animetitle">
           
-            <a href="#">jujutsue kaisen</a>
+            <a href="shop.html?Anime=jujutsu-kaisen">Jujutsu Kaisen</a>
           </div>
         </div>
         <div class="anime">
@@ -123,16 +128,16 @@
             <img src="./IMAGES/bleach.jpg" alt="">
           </div>
           <div class="animetitle">
-            <a href="#">bleach</a>
+            <a href="shop.html?Anime=bleach">bleach</a>
           
           </div>
         </div>
         <div class="anime">
           <div class="image-anime">
-            <img src="./IMAGES/arcane.jpg" alt="">
+            <img src="./IMAGES/sololeveling.jpg" alt="">
           </div>
           <div class="animetitle">
-            <a href="#">arcane</a>
+            <a href="shop.html?Anime=solo-leveling">Solo leveling</a>
         
           </div>
         </div>
@@ -141,7 +146,7 @@
             <img src="./IMAGES/hxh.jpg" alt="">
           </div>
           <div class="animetitle">
-            <a href="#">hunter x hunter</a>
+            <a href="shop.html?Anime=hunter-x-hunter">hunter x hunter</a>
           </div>
         </div>
         <div class="anime">
@@ -149,7 +154,7 @@
             <img src="./IMAGES/dragonball.jpg" alt="">
           </div>
           <div class="animetitle">
-            <a href="#">dragon ball </a>
+            <a href="shop.html?Anime=dragon-ball">dragon ball </a>
           </div>
         </div>
         
@@ -158,7 +163,9 @@
 
     <section class="featured-products container">
       <h3 class="heading-section">Featured Products</h3>
-      <div id="product-grid" class="grid grid--4-col"></div>
+      <div id="product-grid" class="grid grid--4-col">
+
+      </div>
     </section>
     <section class="featured-products container">
       <h3 class="heading-section">Featured Accessories</h3>
@@ -219,4 +226,8 @@
       </div>
     </footer>
   </body>
+  <script src="js/shop.js"></script>
+  <script src="js/product.js"></script>
+  <script src="js/anime.js"></script>
+
 </html>

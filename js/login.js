@@ -44,7 +44,6 @@ window.addEventListener("load", function () {
     );
 
     if (matchedUser) {
-      alert("Login successful!");
       window.location.href = "index.html";
     } else {
       alert("Incorrect email or password.");

@@ -211,10 +211,37 @@ body {
   transition: all 0.3s ease;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .product-card:hover {
   transform: scale(1.05);
+}
+
+.product-actions {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  background-color: #eee;
+}
+
+.product-card:hover .product-actions {
+  display: flex;
+}
+
+.product-actions button {
+  color: white;
+  background-color: #6776c2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 7.5px 15px;
+  font-weight: bold;
+  font-size: 1.6rem;
 }
 
 .product-card img {
