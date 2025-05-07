@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+    <!-- <script src="js/product.js"></script> -->
+
+    <script src="js/shop.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="IMAGES/image.png" alt="ONE_PIECE-logo" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+
+          <li class="dropdown">
+            <a class="main-nav-link" href="#categories">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?Category=Hoodies">Hoodies</a></li>
+              <li><a href="shop.html?Category=T-Shirts">T-Shirts</a></li>
+              <li><a href="shop.html?Category=Accessories">Accessories</a></li>
+              <li>
+                <a href="shop.html?Category=Gaming-Anime">Gaming Anime</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a class="main-nav-link" href="#Animes">Anime</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?Anime=One-Piece">One Piece</a></li>
+              <li><a href="shop.html?Anime=Bleach">Bleach</a></li>
+              <li>
+                <a href="shop.html?Anime=Attack-on-Titan">Attack on Titan</a>
+              </li>
+              <li><a href="shop.html?Anime=solo-leveling">Solo leveling</a></li>
+              <li><a href="shop.html?Anime=berserk">Berserk</a></li>
+              <li>
+                <a href="shop.html?Anime=jujutsu-kaisen">Jujutsu Kaisen</a>
+              </li>
+              <li>
+                <a href="shop.html?Anime=hunter-x-hunter">Hunter X Hunter </a>
+              </li>
+              <li><a href="shop.html?Anime=dragon-ball">Dragon Ball</a></li>
+            </ul>
+          </li>
+
+          <li><a class="main-nav-link" href="contactUs.html">Contact Us</a></li>
+          <li>
+            <a class="main-nav-link main-lnk" href="login.html">Log In</a>
+          </li>
+          <li><a class="main-nav-link" href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="shop">
+        <div class="container">
+          <div class="shop-grid">
+            <div class="sidebar">
+              <div class="filter-header">
+                <p>Filters:</p>
+                <button class="clear-btn">Clear All</button>
+              </div>
+              <!-- Category filter -->
+              <div class="filter-group">
+                <button class="filter-title-btn">
+                  <span class="filter-title">Category</span>
+                  <span class="filter-arrow">↴</span>
+                </button>
+                <div class="filter-bottom">
+                  <div class="filter-options"></div>
+                </div>
+              </div>
+              <!-- Price filter -->
+              <div class="filter-group">
+                <button class="filter-title-btn">
+                  <span class="filter-title">Price</span>
+                  <span class="filter-arrow">↴</span>
+                </button>
+                <div class="filter-bottom">
+                  <div class="price-range">
+                    <input
+                      type="range"
+                      min="0"
+                      max="1000"
+                      value="0"
+                      class="range-slider"
+                    />
+                    <div class="price-inputs">
+                      <div class="price-input-group">
+                        <span>EGP</span>
+                        <input
+                          type="number"
+                          class="price-input price-input-start"
+                          value="0"
+                          disabled
+                        />
+                      </div>
+                      <div class="price-input-group">
+                        <span>EGP</span>
+                        <input
+                          type="number"
+                          class="price-input price-input-end"
+                          value="1000"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rating Filter -->
+              <div class="shop-product-grid"></div>
+            </div>
+            <div class="shop-product-grid">
+              <div class="shop-product-header">
+                <div class="sort-by">
+                  <span>Sort by:</span>
+                </div>
+                <select class="sort-select">
+                  <option value="default">Default</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Best selling</option>
+                </select>
+              </div>
+              <!-- Products -->
+              <div class="featured-products container">
+                <div id="product-grid" class="grid grid--3-col"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container grid grid--footer">
+        <div class="logo-col">
+          <a href="#" class="footer-logo">
+            <img class="logo" alt="anime store logo" src="IMAGES/image.png" />
+          </a>
+
+          <div class="social-media">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+
+          <p class="copyright">
+            Copyright &copy; 2025 by Anime Store. All rights reserved.
+          </p>
+        </div>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Account</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="signup.html">Create account</a>
+            </li>
+            <li><a class="footer-link" href="login.html">Sign in</a></li>
+            <li><a class="footer-link" href="#">iOS app</a></li>
+            <li><a class="footer-link" href="#">Android app</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">About Anime </a></li>
+            <li><a class="footer-link" href="#">For Business</a></li>
+            <li><a class="footer-link" href="#">Manga partners</a></li>
+            <li><a class="footer-link" href="#">Careers</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col">
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Help center</a></li>
+            <li><a class="footer-link" href="#">Privacy & terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <!-- JS File -->
+  </body>
+</html>

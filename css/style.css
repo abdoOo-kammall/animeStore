@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../IMAGES/solo-leveling-blue-3840x2160-17997.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-container,
+.login-container {
+  background: transparent;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  border: 0.5px solid #fff;
+}
+
+.signup-box h2,
+.login-box h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #fff;
+}
+
+input.error-border {
+  border-color: red;
+}
+
+input.success-border {
+  border-color: green;
+}
+
+.radio-group {
+  display: flex;
+  gap: 5rem;
+  margin-top: 8px;
+  color: #fff;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  min-height: 16px;
+  display: block;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5c032f;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #5c032f;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.login-link a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .signup-container,
+  .login-container {
+    padding: 30px 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container,
+  .login-container {
+    padding: 25px 15px;
+    max-width: 100%;
+  }
+
+  .input-group input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .login-link {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 13px;
+  }
+}

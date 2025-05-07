@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/contactus.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="IMAGES/image.png" alt="ONE_PIECE-logo" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+    
+          <li class="dropdown">
+            <a class="main-nav-link" href="#categories">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?Category=Hoodies">Hoodies</a></li>
+              <li><a href="shop.html?Category=T-Shirts">T-Shirts</a></li>
+              <li><a href="shop.html?Category=Accessories">Accessories</a></li>
+              <li><a href="shop.html?Category=Gaming-Anime">Gaming Anime</a></li>
+            </ul>
+          </li>
+    
+          <li class="dropdown">
+            <a class="main-nav-link" href="#Animes">Anime</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?Anime=One-Piece">One Piece</a></li>
+              <li><a href="shop.html?Anime=Bleach">Bleach</a></li>
+              <li><a href="shop.html?Anime=Attack-on-Titan">Attack on Titan</a></li>
+              <li><a href="shop.html?Anime=solo-leveling">Solo leveling</a></li>
+              <li><a href="shop.html?Anime=berserk">Berserk</a></li>
+              <li><a href="shop.html?Anime=jujutsu-kaisen">Jujutsu Kaisen</a></li>
+              <li><a href="shop.html?Anime=hunter-x-hunter">Hunter X Hunter </a></li>
+              <li><a href="shop.html?Anime=dragon-ball">Dragon Ball</a></li>
+            </ul>
+          </li>
+    
+          <li><a class="main-nav-link" href="contactUs.html">Contact Us</a></li>
+          <li><a class="main-nav-link main-lnk" href="login.html">Log In</a></li>
+          <li><a class="main-nav-link" href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="container grid grid--2-col contactInformation">
+        <div class="contactData">
+          <h2>Contact Information</h2>
+          <div class="flexContactInfo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <p>Email: abdo@example.com</p>
+          </div>
+          <div class="flexContactInfo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <p>Phone: +201028099145</p>
+          </div>
+          <div class="flexContactInfo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <p>Address: Zagazig,Al Sharqia,Egypt</p>
+          </div>
+        </div>
+        <div class="fillInfo">
+            <form>
+              <div class="row">
+                <div class="form-group">
+                  <label for="FirstName">First Name <span>*</span></label>
+                  <input type="text" id="FirstName" placeholder="First Name" required />
+                </div>
+                <div class="form-group">
+                  <label for="LastName">Last Name <span>*</span></label>
+                  <input type="text" id="LastName" placeholder="Last Name" required />
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="form-group">
+                  <label for="Subject">Subject <span>*</span></label>
+                  <input type="text" id="Subject" placeholder="Type your subject" required />
+                </div>
+                <div class="form-group">
+                  <label for="Phone">Phone <span>*</span></label>
+                  <input type="text" id="Phone" placeholder="Enter your phone" required />
+                </div>
+              </div>
+          
+              <div class="form-group full">
+                <label for="Message">Message</label>
+                <textarea id="Message" placeholder="Type Your Message"></textarea>
+              </div>
+          
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+          
+          
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

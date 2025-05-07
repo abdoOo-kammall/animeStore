@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <script src="js/cart.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="IMAGES/image.png" alt="ONE_PIECE-logo" />
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+
+          <li class="dropdown">
+            <a class="main-nav-link" href="#categories">Categories</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?Category=Hoodies">Hoodies</a></li>
+              <li><a href="shop.html?Category=T-Shirts">T-Shirts</a></li>
+              <li><a href="shop.html?Category=Accessories">Accessories</a></li>
+              <li>
+                <a href="shop.html?Category=Gaming-Anime">Gaming Anime</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a class="main-nav-link" href="#Animes">Anime</a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?Anime=One-Piece">One Piece</a></li>
+              <li><a href="shop.html?Anime=Bleach">Bleach</a></li>
+              <li>
+                <a href="shop.html?Anime=Attack-on-Titan">Attack on Titan</a>
+              </li>
+              <li><a href="shop.html?Anime=solo-leveling">Solo leveling</a></li>
+              <li><a href="shop.html?Anime=berserk">Berserk</a></li>
+              <li>
+                <a href="shop.html?Anime=jujutsu-kaisen">Jujutsu Kaisen</a>
+              </li>
+              <li>
+                <a href="shop.html?Anime=hunter-x-hunter">Hunter X Hunter </a>
+              </li>
+              <li><a href="shop.html?Anime=dragon-ball">Dragon Ball</a></li>
+            </ul>
+          </li>
+
+          <li><a class="main-nav-link" href="contactUs.html">Contact Us</a></li>
+          <li>
+            <a class="main-nav-link main-lnk" href="login.html">Log In</a>
+          </li>
+          <li><a class="main-nav-link" href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="success-message" class="success-message hidden">
+      ✅ Order submitted successfully!
+    </div>
+    <main>
+      <div class="main-content active">
+        <section class="cart">
+          <div class="container">
+            <div class="cart-header">
+              <h1>Your Cart</h1>
+              <button class="clear-button">Clear Shopping Cart</button>
+            </div>
+            <table class="cart-table">
+              <thead class="cart-table-header">
+                <tr>
+                  <th style="width: 40%">Product</th>
+                  <th style="width: 15%">Price</th>
+                  <th style="width: 20%">Quantity</th>
+                  <th style="width: 15%">Subtotal</th>
+                  <th style="width: 10%">Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="order">
+          <div class="container">
+            <div class="order-content">
+              <div class="order-card discount-section">
+                <p class="discount-title">Have any discount code?</p>
+                <div class="coupon-form">
+                  <input
+                    type="text"
+                    class="coupon-input"
+                    placeholder="Enter coupon code"
+                  />
+                  <button class="apply-btn">Apply</button>
+                </div>
+              </div>
+
+              <div class="order-card summary-section">
+                <h2 class="section-title">Order Summary</h2>
+                <table class="summary-table">
+                  <thead class="summary-header">
+                    <tr>
+                      <th>Product</th>
+                      <th>Subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                  <tfoot>
+                    <tr class="total-row">
+                      <td><div class="order-product-name">Total</div></td>
+                      <td class="total-price">0.00 EGP</td>
+                    </tr>
+                  </tfoot>
+                </table>
+                <button class="checkout-btn">Submit Order</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- <script src="js/addToCart.js"></script> -->
+  </body>
+</html>
