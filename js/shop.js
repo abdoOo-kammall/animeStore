@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
   const categories = ["Hoodies", "T-Shirts", "Accessories", "Gaming Anime"];
   let isAppended = false;
   let filteredByAnime = [];
-  let allProducts = []; // 🔸 حفظ كل المنتجات الأصلية
+  let allProducts = [];
 
   const createProductCard = (product) => {
     const card = document.createElement("div");
@@ -27,6 +27,8 @@ window.addEventListener("load", () => {
         <button class="add-to-cart">
           <i class="fas fa-cart-plus"></i> Add to Cart
         </button>
+        <button class="viewProduct"> <i class="fa fa-eye" aria-hidden="true"></i>
+        </button>
       </div>
     `;
 
@@ -41,6 +43,12 @@ window.addEventListener("load", () => {
       });
       localStorage.setItem("cart", JSON.stringify(cart));
       alert("mission done ");
+    });
+
+    const viewBtn = card.querySelector(".viewProduct");
+    viewBtn.addEventListener("click", () => {
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "productDetails.html";
     });
 
     return card;
