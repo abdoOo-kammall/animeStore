@@ -33,12 +33,12 @@
 }
 
 .sidebar .filter-header .clear-btn {
-  color: var(--primary-color);
+  color: orangered;
   background: none;
   font-family: inherit;
   border: none;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
 }
 

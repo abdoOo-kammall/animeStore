@@ -9,7 +9,8 @@ window.addEventListener("load", () => {
   const categoryLabel = categoryBox.querySelector(".filter-options");
   const categories = ["Hoodies", "T-Shirts", "Accessories", "Gaming Anime"];
   let isAppended = false;
-  let filteredByAnime = []; // ⬅️ هنا هتحفظ المنتجات اللي جت من الفلترة بالأنمي
+  let filteredByAnime = [];
+  let allProducts = []; // 🔸 حفظ كل المنتجات الأصلية
 
   const createProductCard = (product) => {
     const card = document.createElement("div");
@@ -23,11 +24,25 @@ window.addEventListener("load", () => {
         <p class="product-source">From: ${product.anime}</p>
       </div>
       <div class="product-actions">
-        <button>
+        <button class="add-to-cart">
           <i class="fas fa-cart-plus"></i> Add to Cart
         </button>
       </div>
     `;
+
+    const addToCartBtn = card.querySelector(".add-to-cart");
+    addToCartBtn.addEventListener("click", () => {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({
+        product_name: product.product_name,
+        price: product.price,
+        description: product.description,
+        image_url: product.image_url,
+      });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("mission done ");
+    });
+
     return card;
   };
 
@@ -38,29 +53,36 @@ window.addEventListener("load", () => {
     });
   };
 
-  // ⬇️ جلب المنتجات وفحص الأنمي
   fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((products) => {
+      allProducts = products;
       const urlParams = new URLSearchParams(window.location.search);
       const selectedAnime = urlParams.get("Anime");
+      const selectedCategory = urlParams.get("Category");
+
+      let filtered = products;
 
       if (selectedAnime) {
-        filteredByAnime = products.filter((item) => {
-          return (
+        filtered = filtered.filter(
+          (item) =>
             item.anime.toLowerCase().replace(/\s+/g, "-") ===
             selectedAnime.toLowerCase()
-          );
-        });
-      } else {
-        filteredByAnime = products;
+        );
       }
 
-      renderProducts(filteredByAnime); // ⬅️ اعرض الفلترة المبدئية
-    })
-    .catch((error) => console.error("Error fetching products:", error));
+      if (selectedCategory) {
+        filtered = filtered.filter(
+          (item) =>
+            item.category.toLowerCase().replace(/\s+/g, "-") ===
+            selectedCategory.toLowerCase()
+        );
+      }
 
-  // ⬇️ توليد الفلاتر
+      filteredByAnime = filtered;
+      renderProducts(filtered);
+    });
+
   categoryBtn.addEventListener("click", () => {
     categoryBox.classList.toggle("active");
 
@@ -79,25 +101,104 @@ window.addEventListener("load", () => {
       );
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", (e) => {
-          // ⬅️ خليك بس مختار واحد
           checkboxes.forEach((cb) => {
             if (cb !== e.target) cb.checked = false;
           });
 
           const selectedCategory = e.target.checked ? e.target.value : null;
 
+          let filtered = allProducts;
+          const urlParams = new URLSearchParams(window.location.search);
+          const selectedAnime = urlParams.get("Anime");
+          if (selectedAnime) {
+            filtered = filtered.filter(
+              (item) =>
+                item.anime.toLowerCase().replace(/\s+/g, "-") ===
+                selectedAnime.toLowerCase()
+            );
+          }
+
           if (selectedCategory) {
-            const filtered = filteredByAnime.filter(
+            filtered = filtered.filter(
               (product) => product.category === selectedCategory
             );
-            renderProducts(filtered);
+
+            const url = new URL(window.location.href);
+            url.searchParams.set(
+              "Category",
+              selectedCategory.replace(/\s+/g, "-")
+            );
+            history.replaceState(null, "", url);
           } else {
-            renderProducts(filteredByAnime);
+            const url = new URL(window.location.href);
+            url.searchParams.delete("Category");
+            history.replaceState(null, "", url);
           }
+
+          renderProducts(filtered);
         });
       });
 
       isAppended = true;
     }
+  });
+
+  const clearBtn = document.querySelector(".clear-btn");
+  console.log(clearBtn);
+
+  clearBtn.addEventListener("click", () => {
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    checkboxes.forEach((cb) => (cb.checked = false));
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete("Anime");
+    url.searchParams.delete("Category");
+    history.replaceState(null, "", url);
+
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((products) => {
+        grid.innerHTML = "";
+        products.forEach((product) => {
+          grid.appendChild(createProductCard(product));
+        });
+      });
+  });
+
+  let sortElement = document.querySelector(".sort-select");
+  console.log(sortElement);
+  sortElement.addEventListener("change", () => {
+    let sortValue = sortElement.value;
+
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((products) => {
+        if (sortValue === "price-asc") {
+          products = products.sort((a, b) => {
+            return (
+              parseInt(a.price.replace(/[^\d]/g, "")) -
+              parseInt(b.price.replace(/[^\d]/g, ""))
+            );
+          });
+        } else if (sortValue === "price-desc") {
+          products = products.sort((a, b) => {
+            return (
+              parseInt(b.price.replace(/[^\d]/g, "")) -
+              parseInt(a.price.replace(/[^\d]/g, ""))
+            );
+          });
+        } else if (sortValue === "rating") {
+          products = products.sort((a, b) => {
+            return b.rating - a.rating;
+          });
+        }
+        console.log(products);
+        grid.innerHTML = "";
+        products.forEach((product) => {
+          grid.appendChild(createProductCard(product));
+        });
+      });
+
+    console.log(sortValue);
   });
 });
