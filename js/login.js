@@ -35,18 +35,39 @@ window.addEventListener("load", function () {
 
     if (!emailValid || !passwordValid) return;
 
-    const storedUsers = JSON.parse(localStorage.getItem("animeUsers")) || [];
 
-    const matchedUser = storedUsers.find(
-      (user) =>
-        user.email === loginEmailInput.value.trim() &&
-        user.password === loginPasswordInput.value.trim()
-    );
 
-    if (matchedUser) {
-      window.location.href = "index.html";
+    fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((users) => {
+        const matchedUser = users.find(
+          (user) =>
+            user.email === loginEmailInput.value.trim() &&
+            user.password === loginPasswordInput.value.trim()
+        );
+
+        if (matchedUser) {
+
+
+        /////////////خزن نسخه في local storage//////////////
+      const currentUser = {
+        id: matchedUser.id,
+        name: matchedUser.username,
+        email: matchedUser.email,
+        role: matchedUser.role
+      };
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+
+      const redirectPage = (role === "admin" || role === "seller") ? "admin.html" : "index.html";
+      window.location.href = redirectPage;
     } else {
-      alert("Incorrect email or password.");
+      window.location.href = "index.html";
     }
+  })
+  .catch((error) => {
+    console.error("Error fetching users:", error);
+    alert("There was an error. Please try again later.");
+  });
   });
 });

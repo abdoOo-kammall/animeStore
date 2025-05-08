@@ -76,13 +76,11 @@ window.addEventListener("load", function () {
     return true;
   }
 
-  // التحقق عند الانتقال بين الحقول
   usernameInput.addEventListener("blur", validateUsername);
   emailInput.addEventListener("blur", validateEmail);
   passwordInput.addEventListener("blur", validatePassword);
   confirmPasswordInput.addEventListener("blur", validateConfirmPassword);
 
-  // التحقق عند الكتابة داخل الحقل
   usernameInput.addEventListener("input", validateUsername);
   emailInput.addEventListener("input", validateEmail);
   passwordInput.addEventListener("input", validatePassword);
@@ -90,12 +88,12 @@ window.addEventListener("load", function () {
 
   signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
+  
     const isUsernameValid = validateUsername();
     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
     const isConfirmValid = validateConfirmPassword();
-
+  
     let selectedRole = "";
     for (const input of roleInputs) {
       if (input.checked) {
@@ -103,7 +101,7 @@ window.addEventListener("load", function () {
         break;
       }
     }
-
+  
     if (
       isUsernameValid &&
       isEmailValid &&
@@ -111,31 +109,54 @@ window.addEventListener("load", function () {
       isConfirmValid &&
       selectedRole
     ) {
-      const users = JSON.parse(localStorage.getItem("animeUsers")) || [];
-
-      const existingUser = users.find(
-        (user) =>
-          user.email === emailInput.value.trim() ||
-          user.username === usernameInput.value.trim()
-      );
-
-      if (existingUser) {
-        alert("Email or username already exists!");
-        return;
-      }
-
-      const userData = {
-        username: usernameInput.value.trim(),
-        email: emailInput.value.trim(),
-        password: passwordInput.value.trim(),
-        role: selectedRole,
-      };
-
-      users.push(userData);
-      localStorage.setItem("animeUsers", JSON.stringify(users));
-
-      alert("Sign-up successful!");
-      window.location.href = "login.html";
+      // التحقق إذا كان المستخدم موجودًا بالفعل في JSON Server
+      fetch('http://localhost:3000/users')
+        .then(response => response.json())
+        .then(users => {
+          const existingUser = users.find(
+            (user) =>
+              user.email === emailInput.value.trim() ||
+              user.username === usernameInput.value.trim()
+          );
+  
+          if (existingUser) {
+            alert("Email or username already exists!");
+            window.location.href = "login.html";
+            return;
+          }
+  
+          // إذا لم يكن المستخدم موجودًا، يتم إرسال البيانات إلى الخادم
+          const userData = {
+            name: usernameInput.value.trim(),
+            email: emailInput.value.trim(),
+            password: passwordInput.value.trim(),
+            role: selectedRole,
+          };
+  
+          // إرسال البيانات إلى JSON Server
+          fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('تم حفظ البيانات بنجاح:', data);
+            alert("Sign-up successful!");
+            
+              setTimeout(() => {
+                window.location.href = "login.html";
+              }, 2000); // 2000ms = 2 ثانية
+          })
+          .catch(error => {
+            console.error('خطأ في حفظ البيانات:', error);
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching users:', error);
+        });
     } else if (!selectedRole) {
       alert("Please select a role (Customer or Seller).");
     }
