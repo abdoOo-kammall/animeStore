@@ -55,8 +55,17 @@ window.addEventListener("load", () => {
 
   fetch("http://localhost:3000/products")
     .then((response) => response.json())
+
+    //////////////////
+    // .then((products) => {
+    //   allProducts = products;
+
     .then((products) => {
+      // تصفية المنتجات بحيث تكون Approved فقط
+      products = products.filter(product => product.status === "Approved");
+    
       allProducts = products;
+    //////////////////
       const urlParams = new URLSearchParams(window.location.search);
       const selectedAnime = urlParams.get("Anime");
       const selectedCategory = urlParams.get("Category");
@@ -106,8 +115,10 @@ window.addEventListener("load", () => {
           });
 
           const selectedCategory = e.target.checked ? e.target.value : null;
-
-          let filtered = allProducts;
+          /////////////////////
+          // let filtered = allProducts;
+          let filtered = allProducts.filter(p => p.status === "Approved");
+          ////////////////////
           const urlParams = new URLSearchParams(window.location.search);
           const selectedAnime = urlParams.get("Anime");
           if (selectedAnime) {
@@ -157,12 +168,22 @@ window.addEventListener("load", () => {
 
     fetch("http://localhost:3000/products")
       .then((response) => response.json())
-      .then((products) => {
-        grid.innerHTML = "";
-        products.forEach((product) => {
-          grid.appendChild(createProductCard(product));
-        });
+      /////////////////////////////////////////
+      // .then((products) => {
+      //   grid.innerHTML = "";
+      //   products.forEach((product) => {
+      //     grid.appendChild(createProductCard(product));
+      //   });
+      // });
+    ////////////////////////////////////////////////
+
+    .then((products) => {
+      const approvedProducts = products.filter(p => p.status === "Approved");
+      grid.innerHTML = "";
+      approvedProducts.forEach((product) => {
+        grid.appendChild(createProductCard(product));
       });
+    });
   });
 
   let sortElement = document.querySelector(".sort-select");
@@ -172,7 +193,12 @@ window.addEventListener("load", () => {
 
     fetch("http://localhost:3000/products")
       .then((response) => response.json())
+      ////////////////////////////////////
+      // .then((products) => {
+      /////////////////////////////////////
       .then((products) => {
+        products = products.filter(p => p.status === "Approved");  
+    
         if (sortValue === "price-asc") {
           products = products.sort((a, b) => {
             return (

@@ -284,8 +284,7 @@ function editUser(id) {
   });
 
 
-
-  
+ 
 ////////////////////////////////////////////////////
 //product management
 ////////////////////////////////////////////////////
@@ -317,10 +316,11 @@ function loadProducts() {
     } else {
       // العملاء أو الزوار يشوفوا بس المنتجات الموافق عليها
       allProducts = products.filter(p => p.status === "Approved");
+
     }
       // allProducts = products;       // خزنهم في المتغير العام
       renderProducts(allProducts);     // اعرضهم
-      setupProductPagination(products); // إعداد الـ Pagination
+      setupProductPagination(allProducts); // إعداد الـ Pagination
 })
     .catch((err) => {
       console.error("Error fetching products:", err);
@@ -642,7 +642,6 @@ function updateProductStatus(id, status) {
   });
   
     
-
 
 //////////////////////////////////////////////////
 ////////////order/////////////////////////////////

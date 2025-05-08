@@ -111,6 +111,7 @@
       "image_url": "Animes/jujutsu-kaisen/hoodies2.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.9,
+      "status": "Pending",
       "sellerId": "6649"
     },
     {
@@ -134,6 +135,7 @@
       "image_url": "Animes/jujutsu-kaisen/hoodies4.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.5,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -145,6 +147,7 @@
       "image_url": "Animes/jujutsu-kaisen/hoodies5.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -156,6 +159,7 @@
       "image_url": "Animes/jujutsu-kaisen/t-shirt.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.3,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -167,6 +171,7 @@
       "image_url": "Animes/jujutsu-kaisen/t-shirt2.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.5,
+      "status": "Pending",
       "sellerId": "fdbc"
     },
     {
@@ -178,6 +183,7 @@
       "image_url": "Animes/jujutsu-kaisen/t-shirt3.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.6,
+      "status": "Pending",
       "sellerId": "6649"
     },
     {
@@ -189,6 +195,7 @@
       "image_url": "Animes/jujutsu-kaisen/t-shirt4.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.7,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -200,6 +207,7 @@
       "image_url": "Animes/jujutsu-kaisen/t-shirt5.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.8,
+      "status": "Pending",
       "sellerId": "fdbc"
     },
     {
@@ -211,6 +219,7 @@
       "image_url": "Animes/jujutsu-kaisen/accessories.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -222,6 +231,7 @@
       "image_url": "Animes/jujutsu-kaisen/accessories2.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.3,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -233,6 +243,7 @@
       "image_url": "Animes/jujutsu-kaisen/accessories3.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.7,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -244,6 +255,7 @@
       "image_url": "Animes/jujutsu-kaisen/accessories4.webp",
       "anime": "Jujutsu Kaisen",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -255,6 +267,7 @@
       "image_url": "https://cdn.animebape.com/wp-content/uploads/2024/11/gotenks-shirt-dragon-ball-z-shirt-dbz-shirt-anime-shirt-vintage-tee-lfzpv.jpg",
       "anime": "Dragon Ball",
       "rating": 4.8,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -266,6 +279,7 @@
       "image_url": "https://animestore.cz/447328-large_default/dragon-ball-z-sh-figuarts-accessories-son-goku-s-effect-parts-set.jpg",
       "anime": "Dragon Ball",
       "rating": 4.2,
+      "status": "Pending",
       "sellerId": "fdbc"
     },
     {
@@ -277,6 +291,7 @@
       "image_url": "Animes/dragon ball/accessories.webp",
       "anime": "Dragon Ball",
       "rating": 4.1,
+      "status": "Pending",
       "sellerId": "6649"
     },
     {
@@ -288,6 +303,7 @@
       "image_url": "Animes/dragon ball/accessories2.webp",
       "anime": "Dragon Ball",
       "rating": 4.4,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -299,15 +315,8 @@
       "image_url": "Animes/xhx/hoddies3.jpg",
       "anime": "Hunter X Hunter",
       "rating": 4.4,
-      "sellerId": "fdbc"
-    },
-    {
-      "id": "21",
-      "category": "Hoodies",
-      "product_name": "HxH Hoodie",
-      "price": "650 EGP",
       "status": "Approved",
-      "sellerId": "6649"
+      "sellerId": "fdbc"
     },
     {
       "id": "22",
@@ -318,6 +327,7 @@
       "image_url": "Animes/xhx/hoodies.webp",
       "anime": "Hunter X Hunter",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -329,6 +339,7 @@
       "image_url": "Animes/xhx/hoodies2.webp",
       "anime": "Hunter X Hunter",
       "rating": 4.7,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -340,6 +351,7 @@
       "image_url": "Animes/xhx/t-shirt1.jpg",
       "anime": "Hunter X Hunter",
       "rating": 4.6,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -351,6 +363,7 @@
       "image_url": "Animes/xhx/t-shirt2.jpg",
       "anime": "Hunter X Hunter",
       "rating": 4.7,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -362,6 +375,7 @@
       "image_url": "Animes/xhx/t-shirt3.webp",
       "anime": "Hunter X Hunter",
       "rating": 4.3,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -373,6 +387,7 @@
       "image_url": "Animes/xhx/t-shirt4.jpg",
       "anime": "Hunter X Hunter",
       "rating": 4.6,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -384,6 +399,7 @@
       "image_url": "Animes/bersek/hoodies.webp",
       "anime": "Berserk",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -395,6 +411,7 @@
       "image_url": "Animes/bersek/hoodies2.webp",
       "anime": "Berserk",
       "rating": 4.4,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -406,6 +423,7 @@
       "image_url": "Animes/bersek/access.webp",
       "anime": "Berserk",
       "rating": 4.5,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -417,6 +435,7 @@
       "image_url": "Animes/one-piece/hoodies.webp",
       "anime": "One Piece",
       "rating": 4.9,
+      "status": "Pending",
       "sellerId": "fdbc"
     },
     {
@@ -428,6 +447,7 @@
       "image_url": "Animes/one-piece/hoodies2.webp",
       "anime": "One Piece",
       "rating": 4.8,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -439,6 +459,7 @@
       "image_url": "Animes/one-piece/t-shirt.webp",
       "anime": "One Piece",
       "rating": 4.6,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -450,6 +471,7 @@
       "image_url": "Animes/one-piece/t-shirt2.webp",
       "anime": "One Piece",
       "rating": 4.4,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -461,6 +483,7 @@
       "image_url": "Animes/one-piece/t-shirt3.webp",
       "anime": "One Piece",
       "rating": 4.6,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -472,6 +495,7 @@
       "image_url": "Animes/one-piece/t-shirt4.webp",
       "anime": "One Piece",
       "rating": 4.8,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -483,6 +507,7 @@
       "image_url": "Animes/one-piece/access.webp",
       "anime": "One Piece",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -494,6 +519,7 @@
       "image_url": "Animes/one-piece/access2.webp",
       "anime": "One Piece",
       "rating": 4.8,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -505,6 +531,7 @@
       "image_url": "Animes/one-piece/access3.webp",
       "anime": "One Piece",
       "rating": 4.6,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -516,6 +543,7 @@
       "image_url": "Animes/aot/t-shirt.webp",
       "anime": "Attack on Titan",
       "rating": 4.8,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -527,6 +555,7 @@
       "image_url": "Animes/aot/t-shirts.webp",
       "anime": "Attack on Titan",
       "rating": 4.9,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -538,6 +567,7 @@
       "image_url": "Animes/aot/hoodies.webp",
       "anime": "Attack on Titan",
       "rating": 4.2,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -549,6 +579,7 @@
       "image_url": "Animes/bleach/hoodeies2.webp",
       "anime": "Bleach",
       "rating": 4.3,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -560,6 +591,7 @@
       "image_url": "Animes/bleach/hoodies.webp",
       "anime": "Bleach",
       "rating": 4.7,
+      "status": "Pending",
       "sellerId": "0b36"
     },
     {
@@ -571,6 +603,7 @@
       "image_url": "Animes/bleach/hoodies3.webp",
       "anime": "Bleach",
       "rating": 4.6,
+      "status": "Pending",
       "sellerId": "fdbc"
     },
     {
@@ -582,6 +615,7 @@
       "image_url": "Animes/bleach/t-shirt.webp",
       "anime": "Bleach",
       "rating": 4.2,
+      "status": "Approved",
       "sellerId": "6649"
     },
     {
@@ -593,6 +627,7 @@
       "image_url": "Animes/solo-leveling/hoodies.webp",
       "anime": "Solo Leveling",
       "rating": 4.3,
+      "status": "Approved",
       "sellerId": "0b36"
     },
     {
@@ -604,6 +639,7 @@
       "image_url": "Animes/solo-leveling/hoodies2.webp",
       "anime": "Solo Leveling",
       "rating": 4.8,
+      "status": "Approved",
       "sellerId": "fdbc"
     },
     {
@@ -614,6 +650,7 @@
       "description": "Comfortable and High-quality Hoodie inspired by Solo Leveling anime.",
       "image_url": "Animes/solo-leveling/hoodies3.webp",
       "anime": "Solo Leveling",
+      "status": "Approved",
       "rating": 4.9,
       "sellerId": "6649"
     },
@@ -663,7 +700,7 @@
           "quantity": 2
         }
       ],
-      "status": "pending",
+      "status": "Pending",
       "date": "2025-05-05T17:26:54.429Z",
       "id": "2"
     }
