@@ -37,6 +37,7 @@ window.addEventListener("load", function () {
 
 
 
+    // جلب بيانات المستخدم من json-server
     fetch("http://localhost:3000/users")
       .then((response) => response.json())
       .then((users) => {
@@ -58,16 +59,27 @@ window.addEventListener("load", function () {
       };
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
+        //////////////////////////
+          if (matchedUser.role === "admin" || matchedUser.role === "seller") {
 
-      const redirectPage = (role === "admin" || role === "seller") ? "admin.html" : "index.html";
-      window.location.href = redirectPage;
-    } else {
-      window.location.href = "index.html";
-    }
-  })
-  .catch((error) => {
-    console.error("Error fetching users:", error);
-    alert("There was an error. Please try again later.");
-  });
+            window.location.href = "admin.html";
+          } 
+           else if (matchedUser.role === "seller") {
+
+            window.location.href = "admin.html";
+
+          }
+          if (matchedUser.role === "customer") {
+
+            window.location.href = "index.html";
+          } 
+        } else {
+          window.location.href = "index.html";
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+        alert("There was an error. Please try again later.");
+      });
   });
 });
