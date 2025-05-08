@@ -35,36 +35,8 @@ window.addEventListener("load", function () {
 
     if (!emailValid || !passwordValid) return;
 
-//     const storedUsers = JSON.parse(localStorage.getItem("animeUsers")) || [];
-
-//     const matchedUser = storedUsers.find(
-//       (user) =>
-//         user.email === loginEmailInput.value.trim() &&
-//         user.password === loginPasswordInput.value.trim()
-//     );
-
-//     // if (matchedUser) {
-//     //   window.location.href = "index.html";
-//     // } else {
-//     //   alert("Incorrect email or password.");
-//     // }
-
-//     if (matchedUser) {
-//       if (matchedUser.role === "admin") {
-//         // لو الـ role بتاعه admin، هيروح على صفحة الادمن
-//         window.location.href = "admin.html";
-//       } else {
-//         // لو مش ادمن، هيروح على الصفحة الرئيسية
-//         window.location.href = "index.html";
-//       }
-//     } else {
-//       alert("Incorrect email or password.");
-//     }
-//   });
-// });
 
 
-    // جلب بيانات المستخدم من json-server
     fetch("http://localhost:3000/users")
       .then((response) => response.json())
       .then((users) => {
@@ -78,7 +50,6 @@ window.addEventListener("load", function () {
 
 
         /////////////خزن نسخه في local storage//////////////
-      // ✅ خزّن بيانات المستخدم في localStorage
       const currentUser = {
         id: matchedUser.id,
         name: matchedUser.username,
@@ -87,28 +58,16 @@ window.addEventListener("load", function () {
       };
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-        //////////////////////////
-          if (matchedUser.role === "admin") {
-            // لو الـ role بتاعه admin، هيروح على صفحة الادمن
-            window.location.href = "admin.html";
-          } 
-           else if (matchedUser.role === "seller") {
-              // لو الـ role بتاعه admin، هيروح على صفحة الادمن
-              window.location.href = "admin.html";
 
-            // لو مش ادمن، هيروح على الصفحة الرئيسية
-          }
-          if (matchedUser.role === "customer") {
-            // لو الـ role بتاعه admin، هيروح على صفحة الادمن
-            window.location.href = "index.html";
-          } 
-        } else {
-          window.location.href = "index.html";
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching users:", error);
-        alert("There was an error. Please try again later.");
-      });
+      const redirectPage = (role === "admin" || role === "seller") ? "admin.html" : "index.html";
+      window.location.href = redirectPage;
+    } else {
+      window.location.href = "index.html";
+    }
+  })
+  .catch((error) => {
+    console.error("Error fetching users:", error);
+    alert("There was an error. Please try again later.");
+  });
   });
 });

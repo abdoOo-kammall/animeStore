@@ -17,24 +17,27 @@ window.addEventListener("load", () => {
   currentUser.role === "seller" ? "Seller-Dashboard" : "Dashboard";
   
   if (currentUser.role === "admin") {
-    document.getElementById("stats-btn")?.click();
     document.getElementById("products-btn")?.style.setProperty("display", "block");
     document.getElementById("orders-btn")?.style.setProperty("display", "block");
     document.getElementById("users-btn")?.style.setProperty("display", "block");
     document.getElementById("stats-btn")?.style.setProperty("display", "block");
+
+    setTimeout(() => {
+      document.getElementById("stats-btn")?.click();
+    }, 0);
   
   
   } else if (currentUser.role === "seller") {
     document.getElementById("products-btn")?.style.setProperty("display", "block");
     document.getElementById("orders-btn")?.style.setProperty("display", "none");
     document.getElementById("users-btn")?.style.setProperty("display", "none");
-    document.getElementById("stats-btn")?.style.setProperty("display", "none");
-  
-    // يضغط تلقائياً زر المنتجات
-    document.getElementById("products-btn")?.click();
-  
+    document.getElementById("stats-btn")?.style.setProperty("display", "block");
+
+    setTimeout(() => {
+      document.getElementById("stats-btn")?.click();
+    }, 0);
+    
   } else {
-    // لا يعرض أي حاجة
     document.getElementById("products-btn")?.style.setProperty("display", "none");
     document.getElementById("orders-btn")?.style.setProperty("display", "none");
     document.getElementById("users-btn")?.style.setProperty("display", "none");
@@ -42,8 +45,8 @@ window.addEventListener("load", () => {
   }
 
 const contentArea = document.getElementById("content-area");
-let allUsers = []; // To store a full copy of the users
-const usersPerPage = 5; // Number of users per page
+let allUsers = []; 
+const usersPerPage = 5; 
 let currentUserPage = 1;
 let currentProductPage = 1;
 
@@ -53,9 +56,9 @@ function loadUsers() {
   fetch("http://localhost:3000/users")
     .then((res) => res.json())
     .then((users) => {
-      allUsers = users;       // Store them in the global variable
-      renderUsers(users);     // Display them
-      setupUserPagination(users); // Set up pagination
+      allUsers = users;  
+      renderUsers(users);    
+      setupUserPagination(users); 
 
 
     })
@@ -115,7 +118,6 @@ function renderUsers(users) {
     </div>
   `;
 
-  // Handle page navigation
   document.getElementById("prev-page").addEventListener("click", () => {
     if (currentUserPage > 1) {
       currentUserPage--;
@@ -152,9 +154,8 @@ function renderUsers(users) {
       </form>
     `;
 
-    /////// from login
     if (currentUser?.role === "admin") {
-    ///////
+
     document.getElementById("add-user-form").addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -183,7 +184,6 @@ function renderUsers(users) {
     document.getElementById("cancel-add-user").addEventListener("click", loadUsers);
   });
         
-      // البحث عن المستخدمين
         document.getElementById("search-box-user").value = previousSearchTermUser;
         document.getElementById("search-box-user").focus();
         document.getElementById("search-box-user").addEventListener("input", function () {
@@ -211,8 +211,8 @@ function setupUserPagination(users) {
 function editUser(id) {
     fetch(`http://localhost:3000/users/${id}`)
     .then(res => {
-        console.log(res); // هنا بتطبع الـ Response object بالكامل
-        return res.json(); // بعد كده بتحوله لـ JSON
+        console.log(res); 
+        return res.json(); 
       })
       .then(user => {
         contentArea.innerHTML = `
@@ -264,9 +264,6 @@ function editUser(id) {
   // Users Event Listener
   contentArea.addEventListener("click", function (e) {
 
-    //////// from login (edit, delete)
-    // const currentUser2 = JSON.parse(localStorage.getItem("currentUser"));
-    ////////
     const currentUser2 = JSON.parse(localStorage.getItem('currentUser'));
 
 
@@ -290,8 +287,8 @@ function editUser(id) {
 ////////////////////////////////////////////////////
 
 
-let allProducts = []; // لتخزين نسخة كاملة من المنتجات
-const productsPerPage = 5; // عدد المنتجات في كل صفحة
+let allProducts = [];
+const productsPerPage = 5;
 
 document.getElementById("products-btn").addEventListener("click", loadProducts);
 
@@ -300,27 +297,17 @@ function loadProducts() {
     .then((res) => res.json())
     .then((products) => {
 
-    ///////from login 
-
-    ///////
-    // if (currentUser.role === "seller") {
-    //     products = products.filter(p => p.sellerId === currentUser.id);
-    //     }
 
     if (currentUser.role === "admin") {
-      // admin يشوف كل المنتجات
       allProducts = products;
     } else if (currentUser.role === "seller") {
-      // seller يشوف منتجاته هو فقط
       allProducts = products.filter(p => p.sellerId === currentUser.id);
     } else {
-      // العملاء أو الزوار يشوفوا بس المنتجات الموافق عليها
       allProducts = products.filter(p => p.status === "Approved");
 
     }
-      // allProducts = products;       // خزنهم في المتغير العام
-      renderProducts(allProducts);     // اعرضهم
-      setupProductPagination(allProducts); // إعداد الـ Pagination
+      renderProducts(allProducts);
+      setupProductPagination(allProducts);
 })
     .catch((err) => {
       console.error("Error fetching products:", err);
@@ -437,22 +424,16 @@ function renderProducts(products) {
     `;
 
     document.getElementById("add-product-form").addEventListener("submit", function (e) {
-        ///////////////
-// const currentUser = JSON.parse(localStorage.getItem("currentUser")); // ← لازم تتأكد إنها متاحة هنا
-// if (currentUser?.role !== "seller") {
 
   
-  //////////////
       e.preventDefault();
 
       fetch("http://localhost:3000/products")
         .then(res => res.json())
         .then(productsList => {
-/////////////////
 
 const imageInput = document.getElementById("add-image");
 const imageName = imageInput.files[0].name; // ex: "image1.png"
-/////////////////
           const newProduct = {
             product_name: document.getElementById("add-name").value,
             category: document.getElementById("add-category").value,
@@ -572,7 +553,7 @@ function updateProductStatus(id, status) {
             anime: document.getElementById("edit-anime").value,
             rating: parseFloat(document.getElementById("edit-rating").value),
             status:"Pending",
-            sellerId: currentUser.id  // ✅ أهو هنا الإضافة المطلوبة
+            sellerId: currentUser.id 
           };
   
           fetch(`http://localhost:3000/products/${id}`, {
@@ -598,7 +579,6 @@ function updateProductStatus(id, status) {
           return;
         }
   
-        // لو Admin أو صاحب المنتج، نفذ الحذف
         fetch(`http://localhost:3000/products/${id}`, {
           method: "DELETE",
         })
@@ -607,11 +587,7 @@ function updateProductStatus(id, status) {
       })
       .catch(err => console.error("Error fetching product for deletion:", err));
   }
-  
-  
-  /////////////////////////////////
-  
-  
+    
   
   
   // Products Event Listener
@@ -646,11 +622,9 @@ function updateProductStatus(id, status) {
 //////////////////////////////////////////////////
 ////////////order/////////////////////////////////
 //////////////////////////////////////////////////
+
 function loadOrders() {
-    // if (currentUser.role !== "admin") {
-    //     alert("Access denied. Only Admins can view orders.");
-    //     return;
-    //   }
+
     Promise.all([
       fetch("http://localhost:3000/orders").then(res => res.json()),
       fetch("http://localhost:3000/users").then(res => res.json()),
@@ -690,7 +664,6 @@ function loadOrders() {
 
         ///////////////
   
-        // Continue from here with how you want to handle the enriched orders
         console.log(enrichedOrders); // Example output
       })
       .catch(err => console.error("Error loading orders:", err));
@@ -831,29 +804,7 @@ function loadOrders() {
     }
   });
   
-//   function updateOrderStatus(id, status) {
-//     ///////
-//     console.log(`Updating order ID: ${id} to status: ${status}`);
-//     ///////
-//     fetch(`http://localhost:3000/orders/${id}`)
 
-//       .then(res => res.json())
-//       .then(order => {
-//         const updatedOrder = {
-//           ...order,
-//           status,
-//           date: order.date || new Date().toISOString()
-//         };
-  
-//         fetch(`http://localhost:3000/orders/${id}`, {
-//           method: "PUT",
-//           headers: { "Content-Type": "application/json" },
-//           body: JSON.stringify(updatedOrder),
-//         })
-//           .then(() => loadOrders())
-//           .catch(err => console.error("Error updating order status:", err));
-//       });
-//   }
 function updateOrderStatus(id, status) {
     console.log(`Updating order ID: ${id} to status: ${status}`);
   
@@ -883,162 +834,9 @@ function updateOrderStatus(id, status) {
       })
       .catch(err => console.error("Order update failed:", err));
   }
-//   function editOrder(id) {
-//     Promise.all([
-//       fetch(`http://localhost:3000/orders/${id}`).then(res => res.json()),
-//       fetch("http://localhost:3000/users").then(res => res.json()),
-//       fetch("http://localhost:3000/products").then(res => res.json())
-//     ])
-//       .then(([order, users, products]) => {
-//         contentArea.innerHTML = `
-//           <h2>Edit Order</h2>
-//           <form id="edit-order-form">
-//             <label>Customer:</label><br />
-//             <select id="edit-customer">
-//               ${users.map(user => `
-//                 <option value="${user.id}" ${user.id === order.userId ? "selected" : ""}>${user.name}</option>
-//               `).join("")}
-//             </select><br /><br />
-            
-//             <label>Product:</label><br />
-//             <select id="edit-product">
-//               ${products.map(product => `
-//                 <option value="${product.id}" ${product.id === order.productId ? "selected" : ""}>${product.name}</option>
-//               `).join("")}
-//             </select><br /><br />
-            
-//             <label>Quantity:</label><br />
-//             <input type="number" id="edit-quantity" value="${order.quantity}" required /><br /><br />
-  
-//             <label>Status:</label><br />
-//             <select id="edit-status">
-//               <option value="Pending" ${order.status === "Pending" ? "selected" : ""}>Pending</option>
-//               <option value="Approved" ${order.status === "Approved" ? "selected" : ""}>Approved</option>
-//               <option value="Rejected" ${order.status === "Rejected" ? "selected" : ""}>Rejected</option>
-//             </select><br /><br />
-//             <button type="submit">Save Changes</button>
-//             <button type="button" id="cancel-edit-order">Cancel</button>
-//           </form>
-//         `;
-  
-//         document.getElementById("edit-order-form").addEventListener("submit", function (e) {
-//           e.preventDefault();
-//           const updatedOrder = {
-//             userId: document.getElementById("edit-customer").value,
-//             productId: document.getElementById("edit-product").value,
-//             quantity: Number(document.getElementById("edit-quantity").value),
-//             status: document.getElementById("edit-status").value,
-//             date: order.date || new Date().toISOString()
-//           };
-  
-//           fetch(`http://localhost:3000/orders/${id}`, {
-//             method: "PUT",
-//             headers: { "Content-Type": "application/json" },
-//             body: JSON.stringify(updatedOrder),
-//           })
-//             .then(() => loadOrders())
-//             .catch(err => console.error("Error updating order:", err));
-//         });
-  
-//         document.getElementById("cancel-edit-order").addEventListener("click", loadOrders);
-//       });
-//   }
 
 
-
-
-// function editOrder(id) {
-//     Promise.all([
-//       fetch(`http://localhost:3000/orders/${id}`).then(res => res.json()),
-//       fetch("http://localhost:3000/users").then(res => res.json()),
-//       fetch("http://localhost:3000/products").then(res => res.json())
-//     ])
-//     .then(([order, users, products]) => {
-//         // إذا لم تكن المنتجات موجودة أو فارغة، يمكن إضافة مصفوفة فارغة
-//         const productDetails = order.productDetails || [];
-        
-//         contentArea.innerHTML = `
-//           <h2>Edit Order</h2>
-//           <form id="edit-order-form">
-//             <label>Customer:</label><br />
-//             <select id="edit-customer" disabled>
-//               ${users.map(user => `
-//                 <option value="${user.id}" ${user.id === order.userId ? "selected" : ""}>${user.name}</option>
-//               `).join("")}
-//             </select><br /><br />
-//             <p>Customer: ${users.find(user => user.id === order.userId)?.name}</p>
-      
-//             <h3>Product Details</h3>
-//             <div id="product-details">
-//               ${productDetails.length > 0 ? productDetails.map((productDetail, index) => `
-//                     <div class="product-detail">
-//                       <label>Product ${index + 1}:</label><br />
-//                       <select class="edit-product" data-index="${index}">
-//                         ${products.map(product => `
-//                           <option value="${product.id}" ${product.id === productDetail.productId ? "selected" : ""}>${product.name}</option>
-//                         `).join("")}
-//                       </select><br /><br />
-      
-//                       <label>Quantity:</label><br />
-//                       <input type="number" class="edit-quantity" data-index="${index}" value="${productDetail.quantity}" required /><br /><br />
-//                     </div>
-//                   `).join("")
-//                 : '<p>No products available for this order.</p>'
-//               }
-//               <button type="button" id="add-product-detail">Add Product</button>
-//             </div>
-      
-//             <label>Status:</label><br />
-//             <select id="edit-status">
-//               <option value="Pending" ${order.status === "Pending" ? "selected" : ""}>Pending</option>
-//               <option value="Approved" ${order.status === "Approved" ? "selected" : ""}>Approved</option>
-//               <option value="Rejected" ${order.status === "Rejected" ? "selected" : ""}>Rejected</option>
-//             </select><br /><br />
-      
-//             <button type="submit">Save Changes</button>
-//             <button type="button" id="cancel-edit-order">Cancel</button>
-//           </form>
-//         `;
-  
-//         // إضافة منتج جديد
-//         document.getElementById("add-product-detail").addEventListener("click", () => {
-//           const newProductDetail = {
-//             productId: products[0].id,  // تحديد المنتج الافتراضي
-//             quantity: 1  // تحديد الكمية الافتراضية
-//           };
-//           order.productDetails.push(newProductDetail);
-//           editOrder(id);  // إعادة عرض النموذج مع المنتج الجديد
-//         });
-  
-//         // حفظ التعديلات عند إرسال النموذج
-//         document.getElementById("edit-order-form").addEventListener("submit", function (e) {
-//           e.preventDefault();
-  
-//           const updatedOrder = {
-//             userId: order.userId,  // لا نغير الـ userId
-//             productDetails: order.productDetails.map((productDetail, index) => ({
-//               productId: document.querySelector(`.edit-product[data-index="${index}"]`).value,
-//               quantity: Number(document.querySelector(`.edit-quantity[data-index="${index}"]`).value),
-//             })),
-//             status: document.getElementById("edit-status").value,
-//             date: order.date || new Date().toISOString()
-//           };
-  
-//           fetch(`http://localhost:3000/orders/${id}`, {
-//             method: "PUT",
-//             headers: { "Content-Type": "application/json" },
-//             body: JSON.stringify(updatedOrder),
-//           })
-//             .then(() => loadOrders())  // إعادة تحميل الطلبات بعد التحديث
-//             .catch(err => console.error("Error updating order:", err));
-//         });
-  
-//         // إلغاء التعديل والرجوع إلى عرض الطلبات
-//         document.getElementById("cancel-edit-order").addEventListener("click", loadOrders);
-//       })
-//       .catch(err => console.error("Error fetching order details:", err));
-//   }
-let currentProductDetails = []; // خليها متاحة في النطاق الأعلى
+let currentProductDetails = [];
 
 function editOrder(id) {
   Promise.all([
@@ -1058,9 +856,9 @@ function editOrder(id) {
       };
     });
 
-    renderEditForm(order, users, products); // أنشئ دالة منفصلة للعرض
+    renderEditForm(order, users, products);
   })
-  .catch(err => console.error("Error fetching order details:", err)); // ← مكانه كان غلط
+  .catch(err => console.error("Error fetching order details:", err));
 }
 
 function renderEditForm(order, users, products) {
@@ -1119,10 +917,9 @@ function renderEditForm(order, users, products) {
     </form>
   `;
 
-  // زر الإضافة
   document.getElementById("add-product-detail").addEventListener("click", () => {
     currentProductDetails.push({ productId: products[0].id, quantity: 1 });
-    renderEditForm(order, users, products); // أعد فقط بناء النموذج
+    renderEditForm(order, users, products);
   });
 
   /////////////
@@ -1135,7 +932,6 @@ function renderEditForm(order, users, products) {
   });
   /////////////
 
-  // حفظ التعديلات
   document.getElementById("edit-order-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -1166,131 +962,165 @@ function renderEditForm(order, users, products) {
 //statistics 
 ////////////////////
 
-// document.getElementById("stats-btn").addEventListener("click", async () => {
-//     const [usersRes, productsRes, ordersRes] = await Promise.all([
-//       fetch("http://localhost:3000/users"),
-//       fetch("http://localhost:3000/products"),
-//       fetch("http://localhost:3000/orders")
-//     ]);
-  
-//     const [users, products, orders] = await Promise.all([
-//       usersRes.json(),
-//       productsRes.json(),
-//       ordersRes.json()
-//     ]);
-  
-//     const total = users.length + products.length + orders.length;
-  
-//     const usersPercent = (users.length / total) * 100;
-//     const productsPercent = (products.length / total) * 100;
-//     const ordersPercent = (orders.length / total) * 100;
-  
-//     const contentArea = document.getElementById("content-area");
-//     contentArea.innerHTML = `
-//       <h2>Statistics Overview</h2>
-//       <div class="stats-grid">
-//         <div class="stat-card">
-//           <h3>Total Users</h3>
-//           <p>${users.length}</p>
-//         </div>
-//         <div class="stat-card">
-//           <h3>Total Products</h3>
-//           <p>${products.length}</p>
-//         </div>
-//         <div class="stat-card">
-//           <h3>Total Orders</h3>
-//           <p>${orders.length}</p>
-//         </div>
-//       </div>
-  
-//       <h3>Pie Chart Overview</h3>
-//       <div class="pie-chart-container">
-//         <div class="pie-chart"
-//           style="--users:${usersPercent}; --products:${productsPercent}; --orders:${ordersPercent};">
-//         </div>
-//         <ul class="legend">
-//           <li><span class="legend-color" style="background:#3498db;"></span> Users (${users.length})</li>
-//           <li><span class="legend-color" style="background:#2ecc71;"></span> Products (${products.length})</li>
-//           <li><span class="legend-color" style="background:#e67e22;"></span> Orders (${orders.length})</li>
-//         </ul>
-//       </div>
-//     `;
-//   });
 
 document.getElementById("stats-btn").addEventListener("click", async () => {
-    const [usersRes, productsRes, ordersRes] = await Promise.all([
-      fetch("http://localhost:3000/users"),
-      fetch("http://localhost:3000/products"),
-      fetch("http://localhost:3000/orders")
-    ]);
-  
-    const [users, products, orders] = await Promise.all([
-      usersRes.json(),
-      productsRes.json(),
-      ordersRes.json()
-    ]);
-  
-    const total = users.length + products.length + orders.length;
-  
-    const usersPercent = (users.length / total) * 100;
-    const productsPercent = (products.length / total) * 100;
-    const ordersPercent = (orders.length / total) * 100;
-  
-    // Order status counts
-    const approvedCount = orders.filter(order => order.status === "Approved").length;
-    const pendingCount = orders.filter(order => order.status === "Pending").length;
-    const rejectedCount = orders.filter(order => order.status === "Rejected").length;
-  
-    const contentArea = document.getElementById("content-area");
-    contentArea.innerHTML = `
-      <h2>Statistics Overview</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <h3>Total Users</h3>
-          <p>${users.length}</p>
-        </div>
-        <div class="stat-card">
-          <h3>Total Products</h3>
-          <p>${products.length}</p>
-        </div>
-        <div class="stat-card">
-          <h3>Total Orders</h3>
-          <p>${orders.length}</p>
-        </div>
-      </div>
-  
-      <div class="status-cards">
-        <div class="stat-card approved">
-          <h3>Approved Orders</h3>
-          <p>${approvedCount}</p>
-        </div>
-        <div class="stat-card pending">
-          <h3>Pending Orders</h3>
-          <p>${pendingCount}</p>
-        </div>
-        <div class="stat-card rejected">
-          <h3>Rejected Orders</h3>
-          <p>${rejectedCount}</p>
-        </div>
-      </div>
-  
-      <h3>Pie Chart Overview</h3>
-      <div class="pie-chart-container">
-        <div class="pie-chart"
-          style="--users:${usersPercent}; --products:${productsPercent}; --orders:${ordersPercent};">
-        </div>
-        <ul class="legend">
-          <li><span class="legend-color" style="background:#3498db;"></span> Users (${users.length})</li>
-          <li><span class="legend-color" style="background:#2ecc71;"></span> Products (${products.length})</li>
-          <li><span class="legend-color" style="background:#e67e22;"></span> Orders (${orders.length})</li>
-        </ul>
-      </div>
-    `;
-  });
-  
+  const [usersRes, productsRes, ordersRes] = await Promise.all([
+    fetch("http://localhost:3000/users"),
+    fetch("http://localhost:3000/products"),
+    fetch("http://localhost:3000/orders")
+  ]);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("stats-btn")?.click(); // أو استدعِ loadStatistics() مباشرة
-  });
+  const [users, products, orders] = await Promise.all([
+    usersRes.json(),
+    productsRes.json(),
+    ordersRes.json()
+  ]);
 
+  console.log("Users:", users);
+  console.log("Products:", products);
+  console.log("Orders:", orders);
+
+  
+  console.log("Current User:", currentUser);
+
+  if (currentUser) {
+    if (currentUser.role === "admin") {
+      const totalProducts = products.length;
+      const totalOrders = orders.length;
+
+      // حساب النسب بين حالات الطلبات
+      const approvedCount = orders.filter(order => order.status === "Approved").length;
+      const pendingCount = orders.filter(order => order.status === "Pending").length;
+      const rejectedCount = orders.filter(order => order.status === "Rejected").length;
+
+      // حساب عدد المنتجات حسب الحالة للمخطط الدائري الجديد
+      const productsApprovedCount = products.filter(product => product.status === "Approved").length;
+      const productsPendingCount = products.filter(product => product.status === "Pending").length;
+      const productsRejectedCount = products.filter(product => product.status === "Rejected").length;
+
+      // حساب النسب المئوية للمنتجات حسب الحالة
+      const productsApprovedPercent = totalProducts > 0 ? (productsApprovedCount / totalProducts) * 100 : 0;
+      const productsPendingPercent = totalProducts > 0 ? (productsPendingCount / totalProducts) * 100 : 0;
+      const productsRejectedPercent = totalProducts > 0 ? (productsRejectedCount / totalProducts) * 100 : 0;
+
+      const contentArea = document.getElementById("content-area");
+      contentArea.innerHTML = `
+        <h2>Statistics Overview (Admin)</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Products</h3>
+            <p>${totalProducts}</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Orders</h3>
+            <p>${totalOrders}</p>
+          </div>
+        </div>
+
+        <div class="status-cards">
+          <div class="stat-card approved">
+            <h3>Approved Orders</h3>
+            <p>${approvedCount}</p>
+          </div>
+          <div class="stat-card pending">
+            <h3>Pending Orders</h3>
+            <p>${pendingCount}</p>
+          </div>
+          <div class="stat-card rejected">
+            <h3>Rejected Orders</h3>
+            <p>${rejectedCount}</p>
+          </div>
+        </div>
+
+        <h3>Products Status Overview</h3>
+        <div class="products-status-cards">
+          <div class="stat-card approved">
+            <h3>Approved Products</h3>
+            <p>${productsApprovedCount} (${productsApprovedPercent.toFixed(2)}%)</p>
+          </div>
+          <div class="stat-card pending">
+            <h3>Pending Products</h3>
+            <p>${productsPendingCount} (${productsPendingPercent.toFixed(2)}%)</p>
+          </div>
+          <div class="stat-card rejected">
+            <h3>Rejected Products</h3>
+            <p>${productsRejectedCount} (${productsRejectedPercent.toFixed(2)}%)</p>
+          </div>
+        </div>
+
+        <h3>Products Status Chart</h3>
+        <div class="pie-chart-container">
+          <div class="pie-chart"
+            style="--approved:${productsApprovedPercent}; --pending:${productsPendingPercent}; --rejected:${productsRejectedPercent};">
+          </div>
+          <ul class="legend">
+            <li><span class="legend-color" style="background:#48bb78;"></span> Approved (${productsApprovedCount})</li>
+            <li><span class="legend-color" style="background:#ed8936;"></span> Pending (${productsPendingCount})</li>
+            <li><span class="legend-color" style="background:#f56565;"></span> Rejected (${productsRejectedCount})</li>
+          </ul>
+        </div>
+      `;
+    } else if (currentUser.role === "seller") {
+      const sellerId = currentUser.id;
+      const sellerProducts = products.filter(product => product.sellerId === sellerId);
+
+      console.log("Seller Products:", sellerProducts);
+
+      // حساب النسب بين حالات المنتجات
+      const approvedCount = sellerProducts.filter(product => product.status === "Approved").length;
+      const pendingCount = sellerProducts.filter(product => product.status === "Pending").length;
+      const rejectedCount = sellerProducts.filter(product => product.status === "Rejected").length;
+
+      const totalProducts = sellerProducts.length;
+
+      const approvedPercent = totalProducts > 0 ? (approvedCount / totalProducts) * 100 : 0;
+      const pendingPercent = totalProducts > 0 ? (pendingCount / totalProducts) * 100 : 0;
+      const rejectedPercent = totalProducts > 0 ? (rejectedCount / totalProducts) * 100 : 0;
+
+      const contentArea = document.getElementById("content-area");
+      contentArea.innerHTML = `
+        <h2>Statistics Overview (Seller)</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Products</h3>
+            <p>${totalProducts}</p>
+          </div>
+        </div>
+
+        <div class="status-cards">
+          <div class="stat-card approved">
+            <h3>Approved Products</h3>
+            <p>${approvedCount} (${approvedPercent.toFixed(2)}%)</p>
+          </div>
+          <div class="stat-card pending">
+            <h3>Pending Products</h3>
+            <p>${pendingCount} (${pendingPercent.toFixed(2)}%)</p>
+          </div>
+          <div class="stat-card rejected">
+            <h3>Rejected Products</h3>
+            <p>${rejectedCount} (${rejectedPercent.toFixed(2)}%)</p>
+          </div>
+        </div>
+
+        <h3>Pie Chart Overview</h3>
+        <div class="pie-chart-container">
+          <div class="pie-chart"
+            style="--approved:${approvedPercent}; --pending:${pendingPercent}; --rejected:${rejectedPercent};">
+          </div>
+          <ul class="legend">
+            <li><span class="legend-color" style="background:#48bb78;"></span> Approved (${approvedCount})</li>
+            <li><span class="legend-color" style="background:#ed8936;"></span> Pending (${pendingCount})</li>
+            <li><span class="legend-color" style="background:#f56565;"></span> Rejected (${rejectedCount})</li>
+          </ul>
+        </div>
+      `;
+    }
+  } else {
+    console.log("No user found with id 1.");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("stats-btn")?.click(); // أو استدعِ loadStatistics() مباشرة
+});
 })

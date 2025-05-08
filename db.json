@@ -2,24 +2,24 @@
   "users": [
     {
       "name": "ibrahem mahmoud ibrahem",
-      "email": "ibrahem123@gmail.com",
-      "password": "Ibrahem123@",
+      "email": "customer123@gmail.com",
+      "password": "Customer123@",
       "role": "customer",
       "id": "a223"
     },
     {
       "name": "ahmed mohamed",
-      "email": "ahmedmohamed@gmail.com",
+      "email": "admin123@gmail.com",
       "role": "admin",
       "id": "1234",
-      "password": "Ibrahem123@"
+      "password": "Admin123@"
     },
     {
       "name": "sayed mohamed",
-      "email": "sayed12@gmail.com",
+      "email": "seller123@gmail.com",
       "role": "seller",
       "id": "0b36",
-      "password": "Ibrahem123@"
+      "password": "Seller123@"
     },
     {
       "name": "ibrahem mahmoud ibrahem",
@@ -124,7 +124,7 @@
       "anime": "Jujutsu Kaisen",
       "rating": 4.6,
       "sellerId": "0b36",
-      "status": "Approved"
+      "status": "Rejected"
     },
     {
       "id": "5",
