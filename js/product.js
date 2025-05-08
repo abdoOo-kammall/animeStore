@@ -22,9 +22,15 @@ window.addEventListener("load", () => {
           <button>
             <i class="fas fa-cart-plus"></i> Add to Cart
           </button>
+          <button class="viewProduct"> <i class="fa fa-eye" aria-hidden="true"></i>
+        </button>
         </div>
     `;
-
+        const viewBtn = card.querySelector(".viewProduct");
+        viewBtn.addEventListener("click", () => {
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+          window.location.href = "productDetails.html";
+        });
         grid.appendChild(card);
       });
     })
@@ -55,8 +61,15 @@ window.addEventListener("load", () => {
           <button>
             <i class="fas fa-cart-plus"></i> Add to Cart
           </button>
+          <button class="viewProduct"> <i class="fa fa-eye" aria-hidden="true"></i>
+        </button>
         </div>
     `;
+        const viewBtn = card.querySelector(".viewProduct");
+        viewBtn.addEventListener("click", () => {
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+          window.location.href = "productDetails.html";
+        });
 
         grid.appendChild(card);
       });
