@@ -53,11 +53,11 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
+/* 
 .valueSize:hover {
-  background-color: #5560a3;
-  color: #fff;
-}
+  /* background-color: #5560a3; */
+/* color: #fff; */
+/* } */
 
 .valueSize.selected {
   background-color: #6776c2;

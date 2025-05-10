@@ -49,7 +49,7 @@ window.addEventListener("load", function () {
           /////////////خزن نسخه في local storage//////////////
           const currentUser = {
             id: matchedUser.id,
-            name: matchedUser.username,
+            name: matchedUser.name,
             email: matchedUser.email,
             role: matchedUser.role,
           };

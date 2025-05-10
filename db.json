@@ -1,11 +1,10 @@
 {
   "users": [
     {
-      "name": "ibrahem mahmoud ibrahem",
+      "id": "a223",
+      "name": "ibrahem",
       "email": "customer123@gmail.com",
-      "password": "Customer123@",
-      "role": "customer",
-      "id": "a223"
+      "password": "Aa123456@@"
     },
     {
       "name": "ahmed mohamed",
@@ -64,9 +63,9 @@
     },
     {
       "id": "be07",
-      "name": "hana ahmed",
-      "email": "hanaahmed123@gmail.com",
-      "password": "Hanaahmed123@",
+      "name": "hanan ahmed",
+      "email": "hananahmed123@gmail.com",
+      "password": "Hanaahmed123@@@",
       "role": "customer"
     },
     {
@@ -680,7 +679,6 @@
       "rating": 4.9,
       "sellerId": "6649"
     },
-
     {
       "product_name": "jemy neutron",
       "category": "Hoodies",

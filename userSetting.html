@@ -3,25 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Product Details | JS Shipping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/productDetails.css" />
-    <!-- <script src="js/productDetails.js"></script> -->
+    <link rel="stylesheet" href="css/userDetails.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <title>User Setting</title>
   </head>
   <body>
     <header class="header">
       <img class="logo" src="IMAGES/image.png" alt="ONE_PIECE-logo" />
-
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a class="main-nav-link" href="index.html">Home</a></li>
-
           <li class="dropdown">
             <a class="main-nav-link" href="#categories">Categories</a>
             <ul class="dropdown-menu">
@@ -33,7 +39,6 @@
               </li>
             </ul>
           </li>
-
           <li class="dropdown">
             <a class="main-nav-link" href="#Animes">Anime</a>
             <ul class="dropdown-menu">
@@ -53,7 +58,6 @@
               <li><a href="shop.html?Anime=dragon-ball">Dragon Ball</a></li>
             </ul>
           </li>
-
           <li><a class="main-nav-link" href="contactUs.html">Contact Us</a></li>
           <li>
             <a id="login-link" class="main-nav-link main-lnk" href="login.html"
@@ -66,7 +70,9 @@
             >
           </li>
           <li>
-            <i id="user-icon" class="fas fa-user" style="display: none"></i>
+            <a href="userSetting.html"
+              ><i id="user-icon" class="fas fa-user" style="display: none"></i
+            ></a>
           </li>
           <li>
             <a href="cart.html" class="cart-info" style="display: none">
@@ -78,36 +84,45 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <section>
-        <div class="container">
-          <div class="product-details-container">
-            <div class="image-container">
-              <img src="" alt="" />
-            </div>
-            <div class="productsInfo">
-              <h3 class="animeName"></h3>
-              <p class="descriptionAnime"></p>
-              <p class="priceAnime">Price: <span class="priceValue"></span></p>
-              <p class="Rating">ٌRating : <span></span></p>
-              <div class="size">
-                <p class="sizeAnime">SIZE :</p>
-                <button class="valueSize M">M</button>
-                <button class="valueSize L">L</button>
-                <button class="valueSize XL">XL</button>
-              </div>
-              <div class="products-actions">
-                <button class="addd-to-cart">
-                  <i class="fas fa-cart-plus"></i> Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
+    <div id="success-message" class="success-message hidden">
+      ✅ Changes saved successfully!
+    </div>
+    <div class="container">
+      <h1>User Details</h1>
+      <form id="userDetailsForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
         </div>
-      </section>
-    </main>
-
-    <script type="module" src="js/productDetails.js"></script>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+        </div>
+        <div class="form-group">
+          <label for="current-password">Current Password:</label>
+          <input
+            type="password"
+            id="current-password"
+            name="current-password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="new-password">New Password:</label>
+          <input type="password" id="new-password" name="new-password" />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+          />
+        </div>
+        <button type="submit">Save Changes</button>
+      </form>
+      <div id="error-message" class="error-message"></div>
+    </div>
     <script src="js/userLog.js"></script>
+    <script src="js/userDedails.js"></script>
   </body>
 </html>

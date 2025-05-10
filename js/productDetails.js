@@ -6,7 +6,17 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".descriptionAnime").textContent = product.description;
   document.querySelector(".priceValue").textContent = product.price;
   document.querySelector(".Rating span").textContent = product.rating;
-
+  let sizeValue = document.querySelectorAll(".valueSize");
+  sizeValue.forEach((Element) => {
+    Element.addEventListener("click", () => {
+      sizeValue.forEach((btn) => {
+        btn.style.backgroundColor = "";
+        btn.style.color = "#5560a3";
+      });
+      Element.style.backgroundColor = "#5560a3";
+      Element.style.color = "#fff";
+    });
+  });
   document.querySelector(".addd-to-cart").addEventListener("click", () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -20,6 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
       alert("Product added to cart successfully!");
     }
   });
+
   // function updateHeader() {
   //   const loginLink = document.querySelector(
   //     '.main-nav-list a[href="login.html"]'
