@@ -1,24 +1,4 @@
 window.addEventListener("load", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedAnime = urlParams.get("Anime");
-  console.log(selectedAnime);
-  ////
-
-  fetch("http://localhost:3000/products").then((response) => {
-    response.json().then((products) => {
-      products = products.filter((item) => {
-        return (
-          item.anime.toLowerCase().replace(/\s+/g, "-") ===
-          selectedAnime.toLowerCase()
-        );
-      });
-      console.log(products);
-      grid.innerHTML = "";
-      products.forEach((product) => {
-        grid.appendChild(createProductCard(product));
-      });
-    });
-  });
   function updateHeader() {
     const loginLink = document.querySelector(
       '.main-nav-list a[href="login.html"]'
@@ -46,4 +26,10 @@ window.addEventListener("load", () => {
   }
 
   updateHeader();
+  let logOut = document.querySelector(".log-out");
+  logOut.addEventListener("click", () => {
+    localStorage.removeItem("currentUser");
+    updateHeader();
+    window.location.href = "index.html";
+  });
 });

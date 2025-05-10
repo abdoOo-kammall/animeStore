@@ -70,10 +70,10 @@
       "role": "customer"
     },
     {
-      "id": "1698",
-      "name": "mostafa mahmoud",
-      "email": "mostafa123@gmail.com",
-      "password": "Mostafa123@",
+      "id": "d53e",
+      "name": "abdoOo-kammall",
+      "email": "Aabdo@gmail.com",
+      "password": "Aa123456@",
       "role": "customer"
     }
   ],
@@ -655,6 +655,19 @@
       "sellerId": "6649"
     },
     {
+      "id": "50",
+      "category": "Gaming Anime",
+      "product_name": "Gaming Hoodie",
+      "price": "700 EGP",
+      "description": "Comfortable and High-quality Hoodie inspired by Solo Leveling anime.",
+      "image_url": "https://m.media-amazon.com/images/I/B1mEhjGJ2nL._CLa%7C2140%2C2000%7CB1Ey32pDI3L.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UY1000_.png",
+      "anime": "Anime Games",
+      "status": "Approved",
+      "rating": 4.9,
+      "sellerId": "6649"
+    },
+
+    {
       "product_name": "jemy neutron",
       "category": "Hoodies",
       "price": "1000 EGP",
@@ -665,6 +678,18 @@
       "status": "Approved",
       "sellerId": "0b36",
       "id": "3d32"
+    },
+    {
+      "id": "e237",
+      "product_name": "abdo kamal",
+      "category": "Hoodies",
+      "price": "2000 EGP",
+      "image_url": "product-images/hoodies.webp",
+      "description": "ghjklhgfcbjmv",
+      "anime": "One Piece",
+      "rating": 3.2,
+      "status": "Approved",
+      "sellerId": "0b36"
     }
   ],
   "orders": [
@@ -706,6 +731,8 @@
     }
   ],
   "new-product": [
-    {}
+    {
+      "id": "952f"
+    }
   ]
 }

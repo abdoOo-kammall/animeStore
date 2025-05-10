@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Product Details | JS Shipping</title>
     <link
       rel="stylesheet"
@@ -16,6 +17,7 @@
   <body>
     <header class="header">
       <img class="logo" src="IMAGES/image.png" alt="ONE_PIECE-logo" />
+
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li><a class="main-nav-link" href="index.html">Home</a></li>
@@ -46,7 +48,7 @@
                 <a href="shop.html?Anime=jujutsu-kaisen">Jujutsu Kaisen</a>
               </li>
               <li>
-                <a href="shop.html?Anime=hunter-x-hunter">Hunter X Hunter </a>
+                <a href="shop.html?Anime=hunter-x-hunter">Hunter X Hunter</a>
               </li>
               <li><a href="shop.html?Anime=dragon-ball">Dragon Ball</a></li>
             </ul>
@@ -54,9 +56,25 @@
 
           <li><a class="main-nav-link" href="contactUs.html">Contact Us</a></li>
           <li>
-            <a class="main-nav-link main-lnk" href="login.html">Log In</a>
+            <a id="login-link" class="main-nav-link main-lnk" href="login.html"
+              >Log In</a
+            >
           </li>
-          <li><a class="main-nav-link" href="signup.html">Sign Up</a></li>
+          <li>
+            <a id="signup-link" class="main-nav-link" href="signup.html"
+              >Sign Up</a
+            >
+          </li>
+          <li>
+            <i id="user-icon" class="fas fa-user" style="display: none"></i>
+          </li>
+          <li>
+            <a href="cart.html" class="cart-info" style="display: none">
+              <p class="cart-value">0</p>
+              <i class="fas fa-cart-plus cart-icon"></i>
+            </a>
+          </li>
+          <li><i class="fa fa-sign-out log-out" style="display: none"></i></li>
         </ul>
       </nav>
     </header>
@@ -90,5 +108,6 @@
     </main>
 
     <script type="module" src="js/productDetails.js"></script>
+    <script src="js/userLog.js"></script>
   </body>
 </html>

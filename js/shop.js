@@ -1,4 +1,10 @@
+let counter = 0;
+
 window.addEventListener("load", () => {
+  let cartFromStorage = JSON.parse(localStorage.getItem("cart")) || [];
+  counter = cartFromStorage.length;
+  document.querySelector(".cart-value").textContent = counter;
+
   let grid = document.getElementById("product-grid");
   const categoryBtn = document.querySelector(
     ".filter-group:nth-child(2) .filter-title-btn"
@@ -42,7 +48,12 @@ window.addEventListener("load", () => {
         image_url: product.image_url,
       });
       localStorage.setItem("cart", JSON.stringify(cart));
-      alert("mission done ");
+      alert("Product has been added to Cart successfully  ");
+      // console.log(cartCounter);
+
+      let cartCounter = document.querySelector(".cart-value");
+      counter++;
+      cartCounter.textContent = counter;
     });
 
     const viewBtn = card.querySelector(".viewProduct");
@@ -70,10 +81,10 @@ window.addEventListener("load", () => {
 
     .then((products) => {
       // تصفية المنتجات بحيث تكون Approved فقط
-      products = products.filter(product => product.status === "Approved");
-    
+      products = products.filter((product) => product.status === "Approved");
+
       allProducts = products;
-    //////////////////
+      //////////////////
       const urlParams = new URLSearchParams(window.location.search);
       const selectedAnime = urlParams.get("Anime");
       const selectedCategory = urlParams.get("Category");
@@ -125,7 +136,7 @@ window.addEventListener("load", () => {
           const selectedCategory = e.target.checked ? e.target.value : null;
           /////////////////////
           // let filtered = allProducts;
-          let filtered = allProducts.filter(p => p.status === "Approved");
+          let filtered = allProducts.filter((p) => p.status === "Approved");
           ////////////////////
           const urlParams = new URLSearchParams(window.location.search);
           const selectedAnime = urlParams.get("Anime");
@@ -183,15 +194,17 @@ window.addEventListener("load", () => {
       //     grid.appendChild(createProductCard(product));
       //   });
       // });
-    ////////////////////////////////////////////////
+      ////////////////////////////////////////////////
 
-    .then((products) => {
-      const approvedProducts = products.filter(p => p.status === "Approved");
-      grid.innerHTML = "";
-      approvedProducts.forEach((product) => {
-        grid.appendChild(createProductCard(product));
+      .then((products) => {
+        const approvedProducts = products.filter(
+          (p) => p.status === "Approved"
+        );
+        grid.innerHTML = "";
+        approvedProducts.forEach((product) => {
+          grid.appendChild(createProductCard(product));
+        });
       });
-    });
   });
 
   let sortElement = document.querySelector(".sort-select");
@@ -205,8 +218,8 @@ window.addEventListener("load", () => {
       // .then((products) => {
       /////////////////////////////////////
       .then((products) => {
-        products = products.filter(p => p.status === "Approved");  
-    
+        products = products.filter((p) => p.status === "Approved");
+
         if (sortValue === "price-asc") {
           products = products.sort((a, b) => {
             return (
@@ -234,5 +247,9 @@ window.addEventListener("load", () => {
       });
 
     console.log(sortValue);
+  });
+  const cartInfoBtn = document.querySelector(".cart-info");
+  cartInfoBtn.addEventListener("click", () => {
+    window.location.href = "cart.html";
   });
 });

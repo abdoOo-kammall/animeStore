@@ -35,8 +35,6 @@ window.addEventListener("load", function () {
 
     if (!emailValid || !passwordValid) return;
 
-
-
     // جلب بيانات المستخدم من json-server
     fetch("http://localhost:3000/users")
       .then((response) => response.json())
@@ -48,31 +46,24 @@ window.addEventListener("load", function () {
         );
 
         if (matchedUser) {
+          /////////////خزن نسخه في local storage//////////////
+          const currentUser = {
+            id: matchedUser.id,
+            name: matchedUser.username,
+            email: matchedUser.email,
+            role: matchedUser.role,
+          };
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-
-        /////////////خزن نسخه في local storage//////////////
-      const currentUser = {
-        id: matchedUser.id,
-        name: matchedUser.username,
-        email: matchedUser.email,
-        role: matchedUser.role
-      };
-      localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
-        //////////////////////////
+          //////////////////////////
           if (matchedUser.role === "admin" || matchedUser.role === "seller") {
-
             window.location.href = "admin.html";
-          } 
-           else if (matchedUser.role === "seller") {
-
+          } else if (matchedUser.role === "seller") {
             window.location.href = "admin.html";
-
           }
           if (matchedUser.role === "customer") {
-
             window.location.href = "index.html";
-          } 
+          }
         } else {
           window.location.href = "index.html";
         }
@@ -82,4 +73,27 @@ window.addEventListener("load", function () {
         alert("There was an error. Please try again later.");
       });
   });
+
+  function updateHeader() {
+    const loginLink = document.querySelector(
+      '.main-nav-list a[href="login.html"]'
+    );
+    const signupLink = document.querySelector(
+      '.main-nav-list a[href="signup.html"]'
+    );
+    const userIcon = document.querySelector("#user-icon");
+
+    if (localStorage.getItem("currentUser")) {
+      loginLink.style.display = "none";
+      signupLink.style.display = "none";
+      userIcon.style.display = "inline-block";
+    } else {
+      loginLink.style.display = "inline-block";
+      signupLink.style.display = "inline-block";
+      userIcon.style.display = "none";
+    }
+  }
+
+  // تحديث الهيدر عند تحميل الصفحة
+  updateHeader();
 });

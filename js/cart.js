@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+  let cartCounter = document.querySelector(".cart-value");
+  if (cartCounter) {
+    cartCounter.textContent = cart.length;
+  }
   const cartTableBody = document.querySelector(".cart-table tbody");
   const totalPriceElement = document.querySelector(".total-price");
   const summaryTableBody = document.querySelector(".summary-table tbody");
@@ -127,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("cart", JSON.stringify(cart));
         renderCartItems();
       });
+      cartCounter.textContent = cart.length;
     });
   }
 
@@ -141,4 +145,31 @@ document.addEventListener("DOMContentLoaded", function () {
       messageDiv.classList.add("hidden");
     }, 4000);
   });
+  // function updateHeader() {
+  //   const loginLink = document.querySelector(
+  //     '.main-nav-list a[href="login.html"]'
+  //   );
+  //   const signupLink = document.querySelector(
+  //     '.main-nav-list a[href="signup.html"]'
+  //   );
+  //   const userIcon = document.querySelector("#user-icon");
+  //   const logOut = document.querySelector(".log-out");
+  //   const cartIcon = document.querySelector(".cart-info");
+
+  //   if (localStorage.getItem("currentUser")) {
+  //     loginLink.style.display = "none";
+  //     signupLink.style.display = "none";
+  //     userIcon.style.display = "inline-block";
+  //     logOut.style.display = "inline-block";
+  //     cartIcon.style.display = "inline-block";
+  //   } else {
+  //     loginLink.style.display = "inline-block";
+  //     signupLink.style.display = "inline-block";
+  //     userIcon.style.display = "none";
+  //     cartIcon.style.display = "none";
+  //     logOut.style.display = "none";
+  //   }
+  // }
+
+  // updateHeader();
 });

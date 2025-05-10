@@ -51,21 +51,46 @@ body {
 }
 
 /******************************/
+.shopBtn {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.shop-btn {
+  background-color: #6776c2;
+  border: none;
+  padding: 10px 30px;
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  border-radius: 15px;
+}
 .cart-info {
   width: 30px;
   height: 30px;
+  position: relative;
+  background-color: inherit;
+  border: none;
+  top: 7px;
+}
+#user-icon,
+.log-out {
+  font-size: 2rem;
+  color: #fff;
 }
 .cart-icon {
   font-size: 2rem;
   color: #fff;
 }
 .cart-value {
-  width: 20px;
-  height: 20px;
-
+  width: 12px;
+  height: 12px;
+  color: #fff;
   background-color: red;
   text-align: center;
-  font-size: 17px;
+  font-size: 12px;
+  position: absolute;
+  top: -11px;
+  left: 6px;
 }
 /* Dropdown Styles */
 .dropdown {
