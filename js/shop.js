@@ -49,7 +49,6 @@ window.addEventListener("load", () => {
       });
       localStorage.setItem("cart", JSON.stringify(cart));
       alert("Product has been added to Cart successfully  ");
-      // console.log(cartCounter);
 
       let cartCounter = document.querySelector(".cart-value");
       counter++;
@@ -74,17 +73,10 @@ window.addEventListener("load", () => {
 
   fetch("http://localhost:3000/products")
     .then((response) => response.json())
-
-    //////////////////
-    // .then((products) => {
-    //   allProducts = products;
-
     .then((products) => {
-      // تصفية المنتجات بحيث تكون Approved فقط
       products = products.filter((product) => product.status === "Approved");
 
       allProducts = products;
-      //////////////////
       const urlParams = new URLSearchParams(window.location.search);
       const selectedAnime = urlParams.get("Anime");
       const selectedCategory = urlParams.get("Category");
@@ -134,19 +126,7 @@ window.addEventListener("load", () => {
           });
 
           const selectedCategory = e.target.checked ? e.target.value : null;
-          /////////////////////
-          // let filtered = allProducts;
           let filtered = allProducts.filter((p) => p.status === "Approved");
-          ////////////////////
-          const urlParams = new URLSearchParams(window.location.search);
-          const selectedAnime = urlParams.get("Anime");
-          if (selectedAnime) {
-            filtered = filtered.filter(
-              (item) =>
-                item.anime.toLowerCase().replace(/\s+/g, "-") ===
-                selectedAnime.toLowerCase()
-            );
-          }
 
           if (selectedCategory) {
             filtered = filtered.filter(
@@ -165,7 +145,8 @@ window.addEventListener("load", () => {
             history.replaceState(null, "", url);
           }
 
-          renderProducts(filtered);
+          filteredByAnime = filtered;
+          renderProducts(filteredByAnime);
         });
       });
 
@@ -174,7 +155,6 @@ window.addEventListener("load", () => {
   });
 
   const clearBtn = document.querySelector(".clear-btn");
-  console.log(clearBtn);
 
   clearBtn.addEventListener("click", () => {
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
@@ -187,15 +167,6 @@ window.addEventListener("load", () => {
 
     fetch("http://localhost:3000/products")
       .then((response) => response.json())
-      /////////////////////////////////////////
-      // .then((products) => {
-      //   grid.innerHTML = "";
-      //   products.forEach((product) => {
-      //     grid.appendChild(createProductCard(product));
-      //   });
-      // });
-      ////////////////////////////////////////////////
-
       .then((products) => {
         const approvedProducts = products.filter(
           (p) => p.status === "Approved"
@@ -208,46 +179,37 @@ window.addEventListener("load", () => {
   });
 
   let sortElement = document.querySelector(".sort-select");
-  console.log(sortElement);
   sortElement.addEventListener("change", () => {
     let sortValue = sortElement.value;
 
-    fetch("http://localhost:3000/products")
-      .then((response) => response.json())
-      ////////////////////////////////////
-      // .then((products) => {
-      /////////////////////////////////////
-      .then((products) => {
-        products = products.filter((p) => p.status === "Approved");
+    let productsToSort = filteredByAnime;
 
-        if (sortValue === "price-asc") {
-          products = products.sort((a, b) => {
-            return (
-              parseInt(a.price.replace(/[^\d]/g, "")) -
-              parseInt(b.price.replace(/[^\d]/g, ""))
-            );
-          });
-        } else if (sortValue === "price-desc") {
-          products = products.sort((a, b) => {
-            return (
-              parseInt(b.price.replace(/[^\d]/g, "")) -
-              parseInt(a.price.replace(/[^\d]/g, ""))
-            );
-          });
-        } else if (sortValue === "rating") {
-          products = products.sort((a, b) => {
-            return b.rating - a.rating;
-          });
-        }
-        console.log(products);
-        grid.innerHTML = "";
-        products.forEach((product) => {
-          grid.appendChild(createProductCard(product));
-        });
+    if (sortValue === "price-asc") {
+      productsToSort = productsToSort.sort((a, b) => {
+        return (
+          parseInt(a.price.replace(/[^\d]/g, "")) -
+          parseInt(b.price.replace(/[^\d]/g, ""))
+        );
       });
+    } else if (sortValue === "price-desc") {
+      productsToSort = productsToSort.sort((a, b) => {
+        return (
+          parseInt(b.price.replace(/[^\d]/g, "")) -
+          parseInt(a.price.replace(/[^\d]/g, ""))
+        );
+      });
+    } else if (sortValue === "rating") {
+      productsToSort = productsToSort.sort((a, b) => {
+        return b.rating - a.rating;
+      });
+    }
 
-    console.log(sortValue);
+    grid.innerHTML = "";
+    productsToSort.forEach((product) => {
+      grid.appendChild(createProductCard(product));
+    });
   });
+
   const cartInfoBtn = document.querySelector(".cart-info");
   cartInfoBtn.addEventListener("click", () => {
     window.location.href = "cart.html";
