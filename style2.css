@@ -72,6 +72,32 @@
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
     min-height: 400px;
   }
+
+  .error-msg {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 16px;
+    display: block;
+  }
+
+  input.error-border {
+    border-color: red;
+  }
+  
+  input.success-border {
+    border-color: green;
+  }input:focus {
+    border-color: #fff;
+  }
+  
+  input.error-border {
+    border-color: red;
+  }
+  
+  input.success-border {
+    border-color: green;
+  }
   
   button {
     padding: 10px 18px;

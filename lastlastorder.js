@@ -11,16 +11,19 @@ window.addEventListener("load", () => {
     console.log("No user found in localStorage");
   }        //////////////////////////////////////////////////////
   
-  
+
   document.querySelector(".sidebar h2").textContent = 
   currentUser.role === "admin" ? "Admin-Dashboard" : 
   currentUser.role === "seller" ? "Seller-Dashboard" : "Dashboard";
+
   
   if (currentUser.role === "admin") {
     document.getElementById("products-btn")?.style.setProperty("display", "block");
     document.getElementById("orders-btn")?.style.setProperty("display", "block");
     document.getElementById("users-btn")?.style.setProperty("display", "block");
     document.getElementById("stats-btn")?.style.setProperty("display", "block");
+    document.getElementById("logout-btn")?.style.setProperty("display", "block");
+
 
     setTimeout(() => {
       document.getElementById("stats-btn")?.click();
@@ -32,6 +35,7 @@ window.addEventListener("load", () => {
     document.getElementById("orders-btn")?.style.setProperty("display", "none");
     document.getElementById("users-btn")?.style.setProperty("display", "none");
     document.getElementById("stats-btn")?.style.setProperty("display", "block");
+    document.getElementById("logout-btn")?.style.setProperty("display", "block");
 
     setTimeout(() => {
       document.getElementById("stats-btn")?.click();
@@ -134,15 +138,16 @@ function renderUsers(users) {
     }
   });
 
-  // Add new user
   document.getElementById("add-user-btn").addEventListener("click", () => {
     contentArea.innerHTML = `
       <h2>Add New User</h2>
       <form id="add-user-form">
         <label>Name:</label><br />
-        <input type="text" id="add-name" required /><br /><br />
+        <input type="text" id="add-name" required /><span id="nameError" class="error-msg"></span><br /><br />
         <label>Email:</label><br />
-        <input type="email" id="add-email" required /><br /><br />
+        <input type="email" id="add-email" required /><span id="emailError" class="error-msg"></span><br /><br />
+        <label>Password:</label><br />
+        <input type="password" id="add-password" required /><span id="passwordError" class="error-msg"></span><br /><br />
         <label>Role:</label><br />
         <select id="add-role">
           <option value="admin">admin</option>
@@ -153,36 +158,100 @@ function renderUsers(users) {
         <button type="button" id="cancel-add-user">Cancel</button>
       </form>
     `;
-
+  
     if (currentUser?.role === "admin") {
-
-    document.getElementById("add-user-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      fetch("http://localhost:3000/users")
-        .then(res => res.json())
-        .then(usersList => {
-          // const lastId = usersList.length > 0 ? usersList[usersList.length - 1].id : 0;
-          const newUser = {
-            // id: Number(lastId) + 1,
-            name: document.getElementById("add-name").value,
-            email: document.getElementById("add-email").value,
-            role: document.getElementById("add-role").value,
-          };
-
-          return fetch("http://localhost:3000/users", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newUser),
-          });
-        })
-        .then(() => loadUsers())
-        .catch(err => console.error("Error adding user:", err));
-    });
-}
-
+      const nameInput = document.getElementById("add-name");
+      const emailInput = document.getElementById("add-email");
+      const passwordInput = document.getElementById("add-password");
+  
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+  
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+  
+      function validateName() {
+        const value = nameInput.value.trim();
+        if (value.length < 3) {
+          nameError.textContent = "Name must be at least 3 characters.";
+          return false;
+        }
+        nameError.textContent = "";
+        return true;
+      }
+  
+      function validateEmail() {
+        const value = emailInput.value.trim();
+        if (!emailRegex.test(value)) {
+          emailError.textContent = "Invalid email address.";
+          return false;
+        }
+        emailError.textContent = "";
+        return true;
+      }
+  
+      function validatePassword() {
+        const value = passwordInput.value.trim();
+        if (!passwordRegex.test(value)) {
+          passwordError.textContent = "Password must include uppercase, lowercase, number, special char, and be at least 8 characters.";
+          return false;
+        }
+        passwordError.textContent = "";
+        return true;
+      }
+  
+      // Real-time validation
+      nameInput.addEventListener("input", validateName);
+      emailInput.addEventListener("input", validateEmail);
+      passwordInput.addEventListener("input", validatePassword);
+  
+      document.getElementById("add-user-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+  
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isPasswordValid = validatePassword();
+  
+        if (!isNameValid || !isEmailValid || !isPasswordValid) return;
+  
+        fetch("http://localhost:3000/users")
+          .then(res => res.json())
+          .then(usersList => {
+            const exists = usersList.find(
+              u => u.email === emailInput.value.trim() || u.name === nameInput.value.trim()
+            );
+  
+            if (exists) {
+              alert("Email or Name already exists.");
+              return;
+            }
+  
+            const newUser = {
+              name: nameInput.value.trim(),
+              email: emailInput.value.trim(),
+              password: passwordInput.value.trim(),
+              role: document.getElementById("add-role").value,
+            };
+  
+            return fetch("http://localhost:3000/users", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(newUser),
+            });
+          })
+          .then(() => loadUsers())
+          .catch(err => console.error("Error adding user:", err));
+      });
+    }
+  
     document.getElementById("cancel-add-user").addEventListener("click", loadUsers);
   });
+
+
+
+
+
         
         document.getElementById("search-box-user").value = previousSearchTermUser;
         document.getElementById("search-box-user").focus();
@@ -219,9 +288,9 @@ function editUser(id) {
           <h2>Edit User</h2>
           <form id="edit-user-form">
             <label>Name:</label><br />
-            <input type="text" id="edit-name" value="${user.name}" required /><br /><br />
+            <input type="text" id="edit-name" value="${user.name}" readonly /><br /><br />
             <label>Email:</label><br />
-            <input type="email" id="edit-email" value="${user.email}" required /><br /><br />
+            <input type="email" id="edit-email" value="${user.email}" readonly /><br /><br />
             <label>Role:</label><br />
             <select id="edit-role">
               <option value="admin" ${user.role === "admin" ? "selected" : ""}>admin</option>
@@ -236,8 +305,6 @@ function editUser(id) {
         document.getElementById("edit-user-form").addEventListener("submit", function (e) {
           e.preventDefault();
           const updatedUser = {
-            name: document.getElementById("edit-name").value,
-            email: document.getElementById("edit-email").value,
             role: document.getElementById("edit-role").value,
           };
   
@@ -415,8 +482,6 @@ function renderProducts(products) {
         <label>Anime:</label><br />
         <input type="text" id="add-anime" required /><br /><br />
 
-        <label>Rating (0–5):</label><br />
-        <input type="number" id="add-rating" min="0" max="5" step="0.1" required /><br /><br />
 
         <button type="submit">Add Product</button>
         <button type="button" id="cancel-add-product">Cancel</button>
@@ -441,7 +506,7 @@ const imageName = imageInput.files[0].name; // ex: "image1.png"
             image_url: `product-images/${imageName}`,
             description: document.getElementById("add-description").value,
             anime: document.getElementById("add-anime").value,
-            rating: parseFloat(document.getElementById("add-rating").value),
+            rating: 0.0, 
             status: "Pending",
             sellerId: currentUser.id
           };
@@ -1122,5 +1187,15 @@ document.getElementById("stats-btn").addEventListener("click", async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("stats-btn")?.click(); // أو استدعِ loadStatistics() مباشرة
+});
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+
+  localStorage.removeItem("currentUser"); // أو sessionStorage.removeItem("currentUser");
+
+  window.location.href = "login.html";
 });
 })

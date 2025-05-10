@@ -75,6 +75,20 @@
       "email": "Aabdo@gmail.com",
       "password": "Aa123456@",
       "role": "customer"
+    },
+    {
+      "id": "56e2",
+      "name": "ahmed mohamed",
+      "email": "ahmed123@gmail.com",
+      "password": "Ahmed123@",
+      "role": "customer"
+    },
+    {
+      "id": "875d",
+      "name": "ahmed sayed",
+      "email": "ahmedsayed123@gmail.com",
+      "password": "Ahmed123@",
+      "role": "admin"
     }
   ],
   "products": [
@@ -678,18 +692,6 @@
       "status": "Approved",
       "sellerId": "0b36",
       "id": "3d32"
-    },
-    {
-      "id": "e237",
-      "product_name": "abdo kamal",
-      "category": "Hoodies",
-      "price": "2000 EGP",
-      "image_url": "product-images/hoodies.webp",
-      "description": "ghjklhgfcbjmv",
-      "anime": "One Piece",
-      "rating": 3.2,
-      "status": "Approved",
-      "sellerId": "0b36"
     }
   ],
   "orders": [
