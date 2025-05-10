@@ -11,16 +11,19 @@ window.addEventListener("load", () => {
     console.log("No user found in localStorage");
   }        //////////////////////////////////////////////////////
   
-  
+
   document.querySelector(".sidebar h2").textContent = 
   currentUser.role === "admin" ? "Admin-Dashboard" : 
   currentUser.role === "seller" ? "Seller-Dashboard" : "Dashboard";
+
   
   if (currentUser.role === "admin") {
     document.getElementById("products-btn")?.style.setProperty("display", "block");
     document.getElementById("orders-btn")?.style.setProperty("display", "block");
     document.getElementById("users-btn")?.style.setProperty("display", "block");
     document.getElementById("stats-btn")?.style.setProperty("display", "block");
+    document.getElementById("logout-btn")?.style.setProperty("display", "block");
+
 
     setTimeout(() => {
       document.getElementById("stats-btn")?.click();
@@ -32,6 +35,7 @@ window.addEventListener("load", () => {
     document.getElementById("orders-btn")?.style.setProperty("display", "none");
     document.getElementById("users-btn")?.style.setProperty("display", "none");
     document.getElementById("stats-btn")?.style.setProperty("display", "block");
+    document.getElementById("logout-btn")?.style.setProperty("display", "block");
 
     setTimeout(() => {
       document.getElementById("stats-btn")?.click();
@@ -478,8 +482,6 @@ function renderProducts(products) {
         <label>Anime:</label><br />
         <input type="text" id="add-anime" required /><br /><br />
 
-        <label>Rating (0–5):</label><br />
-        <input type="number" id="add-rating" min="0" max="5" step="0.1" required /><br /><br />
 
         <button type="submit">Add Product</button>
         <button type="button" id="cancel-add-product">Cancel</button>
@@ -504,7 +506,7 @@ const imageName = imageInput.files[0].name; // ex: "image1.png"
             image_url: `product-images/${imageName}`,
             description: document.getElementById("add-description").value,
             anime: document.getElementById("add-anime").value,
-            rating: parseFloat(document.getElementById("add-rating").value),
+            rating: 0.0, 
             status: "Pending",
             sellerId: currentUser.id
           };
@@ -1185,5 +1187,15 @@ document.getElementById("stats-btn").addEventListener("click", async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("stats-btn")?.click(); // أو استدعِ loadStatistics() مباشرة
+});
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+
+  localStorage.removeItem("currentUser"); // أو sessionStorage.removeItem("currentUser");
+
+  window.location.href = "login.html";
 });
 })

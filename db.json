@@ -691,6 +691,18 @@
       "rating": 3.2,
       "status": "Approved",
       "sellerId": "0b36"
+    },
+    {
+      "id": "9525",
+      "product_name": "sponge pop",
+      "category": "Hoodies",
+      "price": "2000 EGP",
+      "image_url": "product-images/hoodies.webp",
+      "description": "Stylish hoodie featuring Gojo Satoru from Jujutsu Kaisen with high-quality print on front and back.",
+      "anime": "One Piece",
+      "rating": 0,
+      "status": "Approved",
+      "sellerId": "0b36"
     }
   ],
   "orders": [
