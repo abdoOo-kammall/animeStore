@@ -96,3 +96,50 @@ textarea {
 .submit-btn:hover {
   background-color: #4a3ede;
 }
+
+/* Responsive Styles for Contact Us Page */
+
+@media (max-width: 768px) {
+  .grid--2-col.contactInformation {
+    grid-template-columns: 1fr;
+  }
+
+  .contactData,
+  .fillInfo {
+    height: auto;
+  }
+
+  .fillInfo {
+    margin-top: 4.8rem;
+  }
+
+  .form .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contactData h2 {
+    font-size: 1.6rem;
+  }
+
+  .flexContactInfo p {
+    font-size: 1.4rem;
+  }
+
+  label {
+    font-size: 1.4rem;
+  }
+
+  input,
+  textarea,
+  .submit-btn {
+    font-size: 1.4rem;
+    padding: 10px 12px;
+  }
+}

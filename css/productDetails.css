@@ -32,12 +32,14 @@
   padding: 15px 0;
   color: #000;
   font-size: 1.6rem;
+  font-weight: 700;
 }
 .sizeAnime,
 .Rating {
   margin-bottom: 10px;
   color: #000;
   font-size: 1.6rem;
+  font-weight: 700;
 }
 .valueSize {
   width: 40px;
@@ -105,4 +107,86 @@
 
 .addd-to-cart:active {
   transform: scale(0.96);
+}
+
+/* Small devices (phones) */
+@media (max-width: 576px) {
+  .product-details-container {
+    flex-direction: column; /* Stack image and info vertically */
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .image-container {
+    max-width: 100%; /* Image takes full width */
+  }
+
+  .productsInfo {
+    width: 100%; /* Info takes full width */
+    padding: 15px;
+  }
+
+  .animeName {
+    font-size: 1.9rem;
+  }
+
+  .descriptionAnime,
+  .priceAnime,
+  .sizeAnime,
+  .Rating {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .valueSize {
+    width: 35px;
+    height: 30px;
+    font-size: 1.2rem;
+    margin-right: 0.4rem;
+  }
+
+  .addd-to-cart {
+    font-size: 1.4rem;
+    padding: 10px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .product-details-container {
+    gap: 3rem;
+    margin-top: 5rem;
+  }
+
+  .image-container {
+    max-width: 300px;
+  }
+
+  .productsInfo {
+    width: 600px;
+    padding: 20px;
+  }
+
+  .animeName {
+    font-size: 1.9rem;
+  }
+
+  .descriptionAnime,
+  .priceAnime,
+  .sizeAnime,
+  .Rating {
+    font-size: 1.5rem;
+  }
+
+  .valueSize {
+    width: 38px;
+    height: 33px;
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+  }
+
+  .addd-to-cart {
+    font-size: 1.5rem;
+    padding: 11px;
+  }
 }
