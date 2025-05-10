@@ -20,32 +20,5 @@ This is an online e-commerce platform specializing in anime merchandise. It prov
 - JavaScript
 - JSON (for data storage - `db.json`)
 
-## File Structure
 
-├── css/
-│ ├── cart.css
-│ ├── contactus.css
-│ ├── index.css
-│ ├── productDetails.css
-│ ├── shop.css
-│ ├── style.css
-└── js/
-│ ├── cart.js
-│ ├── lastlastorder.js
-│ ├── login.js
-│ ├── productDetails.js
-│ ├── product.js
-│ ├── shop.js
-│ ├── signup.js
-│ └── userLog.js
-├── IMAGES/
-│ └── image.png (Logo)
-├── cart.html
-├── contactUs.html
-├── db.json
-├── index.html
-├── login.html
-├── productDetails.html
-├── userSetting.html
-├── shop.html
-└── signup.html
+
