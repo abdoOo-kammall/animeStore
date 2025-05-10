@@ -139,7 +139,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let submitOrder = document.querySelector(".checkout-btn");
   let messageDiv = document.getElementById("success-message");
 
-  submitOrder.addEventListener("click", () => {});
+  submitOrder.addEventListener("click", () => {
+    messageDiv.classList.remove("hidden");
+    setTimeout(() => {
+      messageDiv.classList.add("hidden");
+    }, 4000);
+  });
   // function updateHeader() {
   //   const loginLink = document.querySelector(
   //     '.main-nav-list a[href="login.html"]'
