@@ -136,4 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error(err);
       });
   });
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartCounter = document.querySelector(".cart-value");
+  let counter = cart.length;
+  cartCounter.textContent = counter;
 });
