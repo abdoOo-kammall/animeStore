@@ -28,15 +28,18 @@ window.addEventListener("DOMContentLoaded", () => {
     const exists = cart.some(
       (item) => item.product_name === product.product_name
     );
-
-    if (!exists) {
-      cart.push(product);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      counter++;
-      cartCounter.textContent = counter;
-      alert("Product added to cart successfully!");
-    } else {
-      alert("Product has been added once!");
+    const storedUser = localStorage.getItem("currentUser");
+    if (!storedUser) alert("U should login to Add");
+    else {
+      if (!exists) {
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        counter++;
+        cartCounter.textContent = counter;
+        alert("Product added to cart successfully!");
+      } else {
+        alert("Product has been added once!");
+      }
     }
   });
 });

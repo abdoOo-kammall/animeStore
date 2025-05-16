@@ -40,18 +40,23 @@ window.addEventListener("load", () => {
 
     const addToCartBtn = card.querySelector(".add-to-cart");
     addToCartBtn.addEventListener("click", () => {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push({
-        product_name: product.product_name,
-        price: product.price,
-        description: product.description,
-        image_url: product.image_url,
-      });
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Product has been added to Cart successfully");
-      let cartCounter = document.querySelector(".cart-value");
-      counter++;
-      cartCounter.textContent = counter;
+      const storedUser = localStorage.getItem("currentUser");
+      if (!storedUser) alert("U should login to Add");
+      else {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({
+          product_id: product.id,
+          product_name: product.product_name,
+          price: product.price,
+          description: product.description,
+          image_url: product.image_url,
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Product has been added to Cart successfully");
+        let cartCounter = document.querySelector(".cart-value");
+        counter++;
+        cartCounter.textContent = counter;
+      }
     });
 
     const viewBtn = card.querySelector(".viewProduct");

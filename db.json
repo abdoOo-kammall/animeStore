@@ -88,6 +88,62 @@
       "email": "ahmedsayed123@gmail.com",
       "password": "Ahmed123@",
       "role": "admin"
+    },
+    {
+      "id": "9e7f",
+      "name": "abdo_kamal",
+      "email": "abdokamaal945@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "bd6b",
+      "name": "abdo_kamal02",
+      "email": "abdokamal98@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "98a0",
+      "name": "abdokamal",
+      "email": "abdokamal02@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "af28",
+      "name": "abdokamal02",
+      "email": "abdokamal94@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "ea26",
+      "name": "abdokamal01",
+      "email": "abdokamal44@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "b522",
+      "name": "abdokamal03",
+      "email": "abdokamal03@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "d89d",
+      "name": "abdokamal05",
+      "email": "abdokamal05@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
+    },
+    {
+      "id": "a62d",
+      "name": "abdokamal06",
+      "email": "abdokamal06@gmail.com",
+      "password": "Aa123456@",
+      "role": "customer"
     }
   ],
   "products": [
@@ -728,6 +784,126 @@
       "status": "Pending",
       "date": "2025-05-05T17:26:54.429Z",
       "id": "2"
+    },
+    {
+      "id": "9a87",
+      "userId": "ea26",
+      "products": [
+        {
+          "productId": "One Piece Hoodie",
+          "quantity": 1
+        },
+        {
+          "productId": "33",
+          "quantity": 1
+        },
+        {
+          "productId": "Berserk Accessorie",
+          "quantity": 1
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-16T20:59:56.650Z"
+    },
+    {
+      "id": "1ee0",
+      "userId": "1234",
+      "products": [
+        {
+          "productId": "Jujutsu Kaisen Accessorie",
+          "quantity": 3
+        },
+        {
+          "productId": "Jujutsu Kaisen Accessorie",
+          "quantity": 1
+        },
+        {
+          "productId": "Jujutsu Kaisen Accessorie",
+          "quantity": 1
+        }
+      ],
+      "status": "Approved",
+      "date": "2025-05-16T21:03:19.426Z"
+    },
+    {
+      "id": "54be",
+      "userId": "1234",
+      "products": [
+        {
+          "productId": "Bleach T-shirt",
+          "quantity": 2
+        },
+        {
+          "productId": "Bleach Hoodie",
+          "quantity": 1
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-16T21:08:19.587Z"
+    },
+    {
+      "id": "97f8",
+      "userId": "1234",
+      "products": [
+        {
+          "productId": "Berserk Hoodie",
+          "quantity": 2
+        },
+        {
+          "productId": "Berserk Hoodie",
+          "quantity": 2
+        },
+        {
+          "productId": "HxH Hoodie",
+          "quantity": 1
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-16T21:09:07.671Z"
+    },
+    {
+      "id": "c1a0",
+      "userId": "1234",
+      "products": [
+        {
+          "productId": "HxH T-Shirt",
+          "quantity": 1
+        },
+        {
+          "productId": "HxH T-Shirt",
+          "quantity": 1
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-16T21:15:03.838Z"
+    },
+    {
+      "id": "d730",
+      "userId": "1234",
+      "products": [
+        {
+          "productId": "Gaming Hoodie",
+          "quantity": 1
+        },
+        {
+          "productId": "Jujutsu Kaisen Hoodie",
+          "quantity": 1
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-16T21:21:40.780Z"
+    },
+    {
+      "id": "9a01",
+      "userId": "1234",
+      "products": [
+        {
+          "productId": "48",
+          "quantity": 5
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-16T21:23:05.627Z"
     }
   ],
   "new-product": [

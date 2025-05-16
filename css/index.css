@@ -51,6 +51,31 @@ body {
 }
 
 /******************************/
+#searchBox {
+  padding: 5px 10px;
+  border: none;
+}
+.suggestions {
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  position: absolute;
+  background: white;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  width: 250px;
+  z-index: 100;
+}
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+.suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
 .shopBtn {
   text-align: center;
   margin-bottom: 4rem;
