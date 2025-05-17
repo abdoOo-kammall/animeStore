@@ -117,4 +117,60 @@ window.addEventListener("load", () => {
   // shopBtn.addEventListener("click", () => {
   //   window.location.href = "shop.html";
   // });
+
+  const searchField = document.getElementById("searchBox");
+  const suggestionsList = document.getElementById("suggestionsList");
+
+  searchField.addEventListener("input", () => {
+    const val = searchField.value.toLowerCase().trim();
+
+    if (val === "") {
+      suggestionsList.style.display = "none";
+      suggestionsList.innerHTML = "";
+      return;
+    }
+
+    fetch("http://localhost:3000/products")
+      .then((res) => res.json())
+      .then((products) => {
+        const animes = [...new Set(products.map((p) => p.anime))];
+        const filtered = animes.filter((anime) =>
+          anime.toLowerCase().startsWith(val)
+        );
+
+        suggestionsList.innerHTML = "";
+
+        if (filtered.length > 0) {
+          suggestionsList.style.display = "block";
+          filtered.forEach((anime) => {
+            const li = document.createElement("li");
+            li.textContent = anime;
+
+            li.onclick = () => {
+              const animeParam = anime.trim().replace(/\s+/g, "-");
+              window.location.href = `shop.html?Anime=${encodeURIComponent(
+                animeParam
+              )}`;
+            };
+
+            suggestionsList.appendChild(li);
+          });
+        } else {
+          suggestionsList.style.display = "none";
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching products:", err);
+        suggestionsList.style.display = "none";
+      });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (
+      !searchField.contains(e.target) &&
+      !suggestionsList.contains(e.target)
+    ) {
+      suggestionsList.style.display = "none";
+    }
+  });
 });

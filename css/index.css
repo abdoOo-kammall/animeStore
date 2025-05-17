@@ -51,29 +51,48 @@ body {
 }
 
 /******************************/
-#searchBox {
-  padding: 5px 10px;
-  border: none;
+.search {
+  max-width: 400px;
+  /* background-color: red; */
+  position: relative;
 }
+
+#searchBox {
+  padding: 7px 15px;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .suggestions {
   border: 1px solid #ccc;
   max-height: 200px;
   overflow-y: auto;
   display: none;
   position: absolute;
+  top: 100%;
+  left: 0;
   background: white;
   list-style: none;
   padding: 0;
   margin-top: 0;
-  width: 250px;
+  width: 100%;
   z-index: 100;
+  font-size: 16px;
+  box-sizing: border-box;
 }
+
 .suggestions li {
   padding: 10px;
   cursor: pointer;
 }
+
 .suggestions li:hover {
   background-color: #f0f0f0;
+}
+#searchBox:focus {
+  outline: none;
 }
 
 .shopBtn {
