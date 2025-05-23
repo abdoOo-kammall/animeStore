@@ -51,6 +51,21 @@ body {
 }
 
 /******************************/
+.swal-title-custom {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.swal-text-custom {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.swal-popup-custom {
+  padding: 30px;
+  border-radius: 25px;
+}
+
 .search {
   max-width: 400px;
   /* background-color: red; */
@@ -63,6 +78,7 @@ body {
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 15px;
 }
 
 .suggestions {

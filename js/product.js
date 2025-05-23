@@ -6,15 +6,15 @@ window.addEventListener("load", () => {
       const accessGrid = document.getElementById("access-grid");
 
       const hoodiesAndTShirts = products
-        .filter((item) => {
-          return item.category === "Hoodies" || item.category === "T-shirts";
-        })
+        .filter(
+          (item) => item.category === "Hoodies" || item.category === "T-shirts"
+        )
+        .sort((a, b) => b.rating - a.rating)
         .slice(0, 4);
 
       const accessories = products
-        .filter((item) => {
-          return item.category === "Accessories";
-        })
+        .filter((item) => item.category === "Accessories")
+        .sort((a, b) => b.rating - a.rating)
         .slice(0, 4);
 
       hoodiesAndTShirts.forEach((product) => {
@@ -29,36 +29,76 @@ window.addEventListener("load", () => {
             <p class="product-rating">Rating: ${product.rating}</p>
             <p class="product-source">From: ${product.anime}</p>
           </div>
-           <div class="product-actions">
-        <button class="add-to-cart">
-          <i class="fas fa-cart-plus"></i> Add to Cart
-        </button>
-        <button class="viewProduct"> <i class="fa fa-eye" aria-hidden="true"></i>
-        </button>
-      </div>
+          <div class="product-actions">
+            <button class="add-to-cart">
+              <i class="fas fa-cart-plus"></i> Add to Cart
+            </button>
+            <button class="viewProduct">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
         `;
 
         const addToCartBtn = card.querySelector(".add-to-cart");
         addToCartBtn.addEventListener("click", () => {
           const storedUser = localStorage.getItem("currentUser");
-          if (!storedUser) alert("U should login to Add");
-          else {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+          if (!storedUser) {
+            Swal.fire({
+              icon: "warning",
+              title: "Warning",
+              text: "You must log in first to add this product to your cart.",
+              customClass: {
+                title: "swal-title-custom",
+                popup: "swal-popup-custom",
+                content: "swal-text-custom",
+              },
+            });
+            return;
+          }
+
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const exists = cart.some((item) => item.product_id === product.id);
+
+          if (exists) {
+            Swal.fire({
+              icon: "info",
+              title: "Already Added",
+              text: "This product is already in your cart.",
+              customClass: {
+                title: "swal-title-custom",
+                popup: "swal-popup-custom",
+                content: "swal-text-custom",
+              },
+            });
+          } else {
             cart.push({
               product_id: product.id,
-
               product_name: product.product_name,
               price: product.price,
               description: product.description,
               image_url: product.image_url,
             });
             localStorage.setItem("cart", JSON.stringify(cart));
-            alert("Product has been added to Cart successfully  ");
-            // console.log(cartCounter);
+
+            Swal.fire({
+              icon: "success",
+              title: "Product Added!",
+              text: "The product has been successfully added to your cart.",
+              showConfirmButton: false,
+              timer: 2000,
+              customClass: {
+                title: "swal-title-custom",
+                popup: "swal-popup-custom",
+                content: "swal-text-custom",
+              },
+            });
 
             let cartCounter = document.querySelector(".cart-value");
-            counter++;
-            cartCounter.textContent = counter;
+            if (cartCounter) {
+              counter++;
+              cartCounter.textContent = counter;
+            }
           }
         });
 
@@ -105,18 +145,12 @@ window.addEventListener("load", () => {
     .catch((error) => console.error("Error fetching products:", error));
 
   const categories = document.querySelectorAll(".categorieName");
-
   categories.forEach((categoryLink) => {
     categoryLink.addEventListener("click", (event) => {
       const selectedCategory = event.target.textContent.trim();
       window.location.href = `shop.html?category=${selectedCategory}`;
     });
   });
-
-  // let shopBtn = document.querySelector(".shop-btn");
-  // shopBtn.addEventListener("click", () => {
-  //   window.location.href = "shop.html";
-  // });
 
   const searchField = document.getElementById("searchBox");
   const suggestionsList = document.getElementById("suggestionsList");

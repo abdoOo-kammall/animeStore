@@ -6,6 +6,7 @@ window.addEventListener("load", () => {
   document.querySelector(".cart-value").textContent = counter;
 
   let grid = document.getElementById("product-grid");
+
   const categoryBtn = document.querySelector(
     ".filter-group:nth-child(2) .filter-title-btn"
   );
@@ -13,6 +14,7 @@ window.addEventListener("load", () => {
     ".filter-group:nth-child(2) .filter-bottom"
   );
   const categoryLabel = categoryBox.querySelector(".filter-options");
+
   const categories = ["Hoodies", "T-Shirts", "Accessories", "Gaming Anime"];
   let isAppended = false;
   let filteredByAnime = [];
@@ -21,6 +23,7 @@ window.addEventListener("load", () => {
   const createProductCard = (product) => {
     const card = document.createElement("div");
     card.className = "product-card";
+
     card.innerHTML = `
       <img src="${product.image_url}" alt="${product.product_name}" />
       <div class="product-content">
@@ -33,7 +36,8 @@ window.addEventListener("load", () => {
         <button class="add-to-cart">
           <i class="fas fa-cart-plus"></i> Add to Cart
         </button>
-        <button class="viewProduct"> <i class="fa fa-eye" aria-hidden="true"></i>
+        <button class="viewProduct">
+          <i class="fa fa-eye" aria-hidden="true"></i>
         </button>
       </div>
     `;
@@ -41,9 +45,36 @@ window.addEventListener("load", () => {
     const addToCartBtn = card.querySelector(".add-to-cart");
     addToCartBtn.addEventListener("click", () => {
       const storedUser = localStorage.getItem("currentUser");
-      if (!storedUser) alert("U should login to Add");
-      else {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (!storedUser) {
+        Swal.fire({
+          icon: "warning",
+          title: "Warning",
+          text: "You must log in first to add this product to your cart.",
+          customClass: {
+            title: "swal-title-custom",
+            popup: "swal-popup-custom",
+            content: "swal-text-custom",
+          },
+        });
+        return;
+      }
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const exists = cart.some((item) => item.product_id === product.id);
+
+      if (exists) {
+        Swal.fire({
+          icon: "info",
+          title: "Already Added",
+          text: "This product is already in your cart.",
+          customClass: {
+            title: "swal-title-custom",
+            popup: "swal-popup-custom",
+            content: "swal-text-custom",
+          },
+        });
+      } else {
         cart.push({
           product_id: product.id,
           product_name: product.product_name,
@@ -52,10 +83,25 @@ window.addEventListener("load", () => {
           image_url: product.image_url,
         });
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert("Product has been added to Cart successfully");
+
+        Swal.fire({
+          icon: "success",
+          title: "Product Added!",
+          text: "The product has been successfully added to your cart.",
+          showConfirmButton: false,
+          timer: 2000,
+          customClass: {
+            title: "swal-title-custom",
+            popup: "swal-popup-custom",
+            content: "swal-text-custom",
+          },
+        });
+
         let cartCounter = document.querySelector(".cart-value");
-        counter++;
-        cartCounter.textContent = counter;
+        if (cartCounter) {
+          counter++;
+          cartCounter.textContent = counter;
+        }
       }
     });
 
@@ -133,6 +179,7 @@ window.addEventListener("load", () => {
           const selectedAnime = new URLSearchParams(window.location.search).get(
             "Anime"
           );
+
           let filtered = selectedAnime
             ? filteredByAnime
             : allProducts.filter((p) => p.status === "Approved");
@@ -215,23 +262,19 @@ window.addEventListener("load", () => {
         }
 
         if (sortValue === "price-asc") {
-          products = products.sort((a, b) => {
-            return (
+          products = products.sort(
+            (a, b) =>
               parseInt(a.price.replace(/[^\d]/g, "")) -
               parseInt(b.price.replace(/[^\d]/g, ""))
-            );
-          });
+          );
         } else if (sortValue === "price-desc") {
-          products = products.sort((a, b) => {
-            return (
+          products = products.sort(
+            (a, b) =>
               parseInt(b.price.replace(/[^\d]/g, "")) -
               parseInt(a.price.replace(/[^\d]/g, ""))
-            );
-          });
+          );
         } else if (sortValue === "rating") {
-          products = products.sort((a, b) => {
-            return b.rating - a.rating;
-          });
+          products = products.sort((a, b) => b.rating - a.rating);
         }
 
         grid.innerHTML = "";

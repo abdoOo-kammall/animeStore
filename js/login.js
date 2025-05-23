@@ -35,7 +35,6 @@ window.addEventListener("load", function () {
 
     if (!emailValid || !passwordValid) return;
 
-    // جلب بيانات المستخدم من json-server
     fetch("http://localhost:3000/users")
       .then((response) => response.json())
       .then((users) => {
@@ -46,7 +45,6 @@ window.addEventListener("load", function () {
         );
 
         if (matchedUser) {
-          /////////////خزن نسخه في local storage//////////////
           const currentUser = {
             id: matchedUser.id,
             name: matchedUser.name,
@@ -55,7 +53,6 @@ window.addEventListener("load", function () {
           };
           localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-          //////////////////////////
           if (matchedUser.role === "admin" || matchedUser.role === "seller") {
             window.location.href = "admin.html";
           } else if (matchedUser.role === "seller") {
@@ -94,6 +91,5 @@ window.addEventListener("load", function () {
     }
   }
 
-  // تحديث الهيدر عند تحميل الصفحة
   updateHeader();
 });

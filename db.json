@@ -28,18 +28,8 @@
       "password": "Ibrahem123@"
     },
     {
-      "name": "ahmed",
-      "email": "ahmedelsayed12@gmail.com",
       "role": "seller",
-      "id": "fdbc",
-      "password": "Ibrahem123@"
-    },
-    {
-      "id": "8521",
-      "name": "youssef nagy",
-      "email": "youssef12@gmail.com",
-      "role": "customer",
-      "password": "Ibrahem123@"
+      "id": "8521"
     },
     {
       "id": "6649",
@@ -144,6 +134,27 @@
       "email": "abdokamal06@gmail.com",
       "password": "Aa123456@",
       "role": "customer"
+    },
+    {
+      "id": "0079",
+      "name": "abdokamal05",
+      "email": "abdoKamal88@gmail.com",
+      "password": "Aa123456@",
+      "role": "seller"
+    },
+    {
+      "id": "9ba2",
+      "name": "abdokamal06",
+      "email": "abdokamal04@gmail.com",
+      "password": "aA123456@",
+      "role": "customer"
+    },
+    {
+      "id": "60b2",
+      "name": "abdokamal00",
+      "email": "andokamal987@gmail.com",
+      "password": "Aa123456@",
+      "role": "seller"
     }
   ],
   "products": [
@@ -746,6 +757,42 @@
       "status": "Approved",
       "sellerId": "0b36",
       "id": "3d32"
+    },
+    {
+      "id": "f60c",
+      "product_name": "Aot ",
+      "category": "Hoodies",
+      "price": "449 EGP",
+      "image_url": "product-images/t-shirt.webp",
+      "description": "GOOD product",
+      "anime": "AOT",
+      "rating": 0,
+      "status": "Pending",
+      "sellerId": "0b36"
+    },
+    {
+      "id": "0413",
+      "product_name": "Aot02",
+      "category": "Hoodies",
+      "price": "350 EGP",
+      "image_url": "product-images/t-shirts.webp",
+      "description": "good one ",
+      "anime": "AOT",
+      "rating": 0,
+      "status": "Approved",
+      "sellerId": "0079"
+    },
+    {
+      "id": "31a9",
+      "product_name": "one piece hoodie",
+      "category": "Hoodies",
+      "price": "500 EGP",
+      "image_url": "product-images/hoodies.webp",
+      "description": "good product ",
+      "anime": "one piece ",
+      "rating": 0,
+      "status": "Approved",
+      "sellerId": "60b2"
     }
   ],
   "orders": [
@@ -806,94 +853,6 @@
       "date": "2025-05-16T20:59:56.650Z"
     },
     {
-      "id": "1ee0",
-      "userId": "1234",
-      "products": [
-        {
-          "productId": "Jujutsu Kaisen Accessorie",
-          "quantity": 3
-        },
-        {
-          "productId": "Jujutsu Kaisen Accessorie",
-          "quantity": 1
-        },
-        {
-          "productId": "Jujutsu Kaisen Accessorie",
-          "quantity": 1
-        }
-      ],
-      "status": "Approved",
-      "date": "2025-05-16T21:03:19.426Z"
-    },
-    {
-      "id": "54be",
-      "userId": "1234",
-      "products": [
-        {
-          "productId": "Bleach T-shirt",
-          "quantity": 2
-        },
-        {
-          "productId": "Bleach Hoodie",
-          "quantity": 1
-        }
-      ],
-      "status": "Pending",
-      "date": "2025-05-16T21:08:19.587Z"
-    },
-    {
-      "id": "97f8",
-      "userId": "1234",
-      "products": [
-        {
-          "productId": "Berserk Hoodie",
-          "quantity": 2
-        },
-        {
-          "productId": "Berserk Hoodie",
-          "quantity": 2
-        },
-        {
-          "productId": "HxH Hoodie",
-          "quantity": 1
-        }
-      ],
-      "status": "Pending",
-      "date": "2025-05-16T21:09:07.671Z"
-    },
-    {
-      "id": "c1a0",
-      "userId": "1234",
-      "products": [
-        {
-          "productId": "HxH T-Shirt",
-          "quantity": 1
-        },
-        {
-          "productId": "HxH T-Shirt",
-          "quantity": 1
-        }
-      ],
-      "status": "Pending",
-      "date": "2025-05-16T21:15:03.838Z"
-    },
-    {
-      "id": "d730",
-      "userId": "1234",
-      "products": [
-        {
-          "productId": "Gaming Hoodie",
-          "quantity": 1
-        },
-        {
-          "productId": "Jujutsu Kaisen Hoodie",
-          "quantity": 1
-        }
-      ],
-      "status": "Pending",
-      "date": "2025-05-16T21:21:40.780Z"
-    },
-    {
       "id": "9a01",
       "userId": "1234",
       "products": [
@@ -904,6 +863,22 @@
       ],
       "status": "Pending",
       "date": "2025-05-16T21:23:05.627Z"
+    },
+    {
+      "id": "a366",
+      "userId": "8521",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 3
+        },
+        {
+          "productId": "1",
+          "quantity": 2
+        }
+      ],
+      "status": "Pending",
+      "date": "2025-05-17T09:42:40.365Z"
     }
   ],
   "new-product": [

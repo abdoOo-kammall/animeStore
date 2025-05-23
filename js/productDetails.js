@@ -25,20 +25,55 @@ window.addEventListener("DOMContentLoaded", () => {
   cartCounter.textContent = counter;
 
   document.querySelector(".addd-to-cart").addEventListener("click", () => {
-    const exists = cart.some(
-      (item) => item.product_name === product.product_name
-    );
     const storedUser = localStorage.getItem("currentUser");
-    if (!storedUser) alert("U should login to Add");
-    else {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    console.log(cart);
+
+    const exists = cart.some(
+      (item) => item.id === product.id || item.product_id === product.id
+    );
+
+    if (!storedUser) {
+      Swal.fire({
+        icon: "warning",
+        title: "Login Required",
+        text: "You must log in first to add products to your cart.",
+        customClass: {
+          title: "swal-title-custom",
+          popup: "swal-popup-custom",
+          content: "swal-text-custom",
+        },
+      });
+    } else {
       if (!exists) {
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         counter++;
         cartCounter.textContent = counter;
-        alert("Product added to cart successfully!");
+
+        Swal.fire({
+          icon: "success",
+          title: "Added to Cart",
+          text: "Product has been successfully added to your cart!",
+          showConfirmButton: false,
+          timer: 2000,
+          customClass: {
+            title: "swal-title-custom",
+            popup: "swal-popup-custom",
+            content: "swal-text-custom",
+          },
+        });
       } else {
-        alert("Product has been added once!");
+        Swal.fire({
+          icon: "info",
+          title: "Already in Cart",
+          text: "This product is already in your cart.",
+          customClass: {
+            title: "swal-title-custom",
+            popup: "swal-popup-custom",
+            content: "swal-text-custom",
+          },
+        });
       }
     }
   });
